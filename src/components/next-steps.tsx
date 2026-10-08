@@ -1,7 +1,7 @@
-import { ButtonLink } from "@/components/button-link";
+import { EnquiryForm } from "@/components/enquiry-form";
 import { Reveal } from "@/components/reveal";
 import { TrackedLink } from "@/components/tracked-link";
-import { contact, doors, mailto, subjects } from "@/lib/content";
+import { doors } from "@/lib/content";
 
 export function NextSteps() {
   return (
@@ -31,22 +31,17 @@ export function NextSteps() {
           ))}
         </ul>
 
-        <Reveal className="mt-20 grid grid-cols-1 gap-6 md:grid-cols-12">
-          <p className="display text-[1.9rem] leading-tight md:col-span-6 md:text-[2.4rem]">
-            Not sure which door is yours? Start with one email.
-          </p>
-          <div className="md:col-span-4 md:col-start-9 md:self-end">
-            <ButtonLink
-              href={mailto(subjects.general)}
-              event="generate_lead"
-              params={{ location: "next", lead_type: "general" }}
-              variant="cream"
-              className="py-4 sm:w-full"
-            >
-              {contact.email}
-            </ButtonLink>
+        <div id="enquire" className="mt-20 grid grid-cols-1 gap-10 md:mt-28 md:grid-cols-12">
+          <Reveal className="md:col-span-4">
+            <h3 className="display text-[1.9rem] leading-tight md:text-[2.4rem]">Not sure which door is yours?</h3>
+            <p className="center-mobile mt-4 max-w-[36ch] text-cream/75">
+              Tell us a little about what you have in mind and we will point you the right way.
+            </p>
+          </Reveal>
+          <div className="md:col-span-7 md:col-start-6">
+            <EnquiryForm />
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

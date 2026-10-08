@@ -1,12 +1,15 @@
 {
-  // Static site served straight from Cloudflare's edge. There is no Worker
-  // script: `npm run build` writes plain files to ./out and they are uploaded
-  // as static assets.
+  // The page is a static export served from Cloudflare's edge. One small
+  // Worker (worker/index.ts) answers /api/enquiry; every other path goes
+  // straight to the static files without running any code.
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "crystal-kizor",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./out",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
   }
 }

@@ -21,7 +21,6 @@ export function mailto(subject: string) {
 export const subjects = {
   speaking: "Speaking enquiry for Crystal Kizor",
   ako: "Partnering with AKO Alliance",
-  general: "Hello Crystal",
 };
 
 export const person = {
