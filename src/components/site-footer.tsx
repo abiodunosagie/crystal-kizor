@@ -1,10 +1,12 @@
 import Image from "next/image";
+import { SignOff } from "@/components/sign-off";
 import { TrackedLink } from "@/components/tracked-link";
 import { social, ventures } from "@/lib/content";
 
 export function SiteFooter() {
   return (
     <footer className="bg-cream">
+      <SignOff />
       <div className="gutter mx-auto grid max-w-[1440px] grid-cols-1 gap-12 py-16 max-md:text-center md:grid-cols-12 md:py-20">
         <div className="md:col-span-4">
           <Image src="/brand/logo-social.webp" alt="Crystal Kizor monogram" width={432} height={436} unoptimized className="center-mobile h-auto w-16" />
