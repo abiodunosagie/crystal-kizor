@@ -81,7 +81,7 @@ src/
     enquiry-topics.ts     form topics, shared with the Worker allow-list
     motion.ts             the one easing curve used across the page
 worker/
-  index.ts                enquiry endpoint: validation, honeypot, throttle, email via Resend
+  index.ts                enquiry endpoint: validation, honeypot, rate limit, email via Resend
 scripts/
   prepare-assets.mjs      photos to WebP sizes, logo sheet to transparent lockups, icons, OG image
 docs/
@@ -107,13 +107,14 @@ npm run assets
 
 ### Enquiry form
 
-The form posts to `/api/enquiry`, handled by `worker/index.ts`. It reads the body with a hard size cap, validates every field, ignores obvious bots (a hidden honeypot field and a minimum time the form was open, measured on the visitor's device), limits each address to two messages a minute through Cloudflare's rate limiting binding and sends a plain-text email through [Resend](https://resend.com) with the visitor's address as reply-to. Configure it with:
+The form posts to `/api/enquiry`, handled by `worker/index.ts`. It reads the body with a hard size cap, validates every field, ignores obvious bots (a hidden honeypot field and a minimum time the form was open, measured on the visitor's device), limits each IP address to about two messages a minute through Cloudflare's rate limiting binding (a weaker in-memory limit applies if the binding is missing, as in some local setups) and sends a plain-text email through [Resend](https://resend.com) with the visitor's address as reply-to. Configure it with:
 
 | Variable | Purpose |
 |---|---|
 | `RESEND_API_KEY` | Resend API key (Worker secret) |
 | `ENQUIRY_TO` | Where enquiries are delivered |
 | `ENQUIRY_FROM` | Verified sender address |
+| `ENQUIRY_LIMITER` | Rate limiting binding, declared in `wrangler.jsonc` |
 
 Locally these go in `.dev.vars` (not committed); in production use `wrangler secret put` for the key and `vars` for the addresses. Without them the form tells visitors to use the email address instead.
 

@@ -41,6 +41,8 @@ export function EnquiryForm() {
   );
   const openedAt = useRef(0);
   const thanksRef = useRef<HTMLHeadingElement>(null);
+  const topicRef = useRef<HTMLSelectElement>(null);
+  const resumeRef = useRef(false);
 
   useEffect(() => {
     openedAt.current = performance.now();
@@ -48,6 +50,11 @@ export function EnquiryForm() {
 
   useEffect(() => {
     if (status.state === "sent") thanksRef.current?.focus();
+    // After "Send another message" the form remounts; keep keyboard users in it.
+    if (status.state === "idle" && resumeRef.current) {
+      resumeRef.current = false;
+      topicRef.current?.focus();
+    }
   }, [status.state]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -78,9 +85,9 @@ export function EnquiryForm() {
   const sending = status.state === "sending";
   return (
     <div>
-      {/* One persistent live region, so assistive technology hears every outcome. */}
+      {/* Errors are announced here; success moves focus to the thank-you heading. */}
       <p aria-live="polite" className="sr-only">
-        {status.state === "sent" ? "Message sent." : status.state === "error" ? status.message : ""}
+        {status.state === "error" ? status.message : ""}
       </p>
 
       {!ready ? (
@@ -94,6 +101,7 @@ export function EnquiryForm() {
           <button
             type="button"
             onClick={() => {
+              resumeRef.current = true;
               setStatus({ state: "idle" });
               openedAt.current = performance.now();
             }}
@@ -105,7 +113,7 @@ export function EnquiryForm() {
       ) : (
         <form onSubmit={onSubmit} className="grid grid-cols-1 gap-8 text-left md:grid-cols-2 md:gap-x-10">
           <Field label="I’m writing about" wide>
-            <select name="topic" required defaultValue="studio_project" className={`${field} cursor-pointer [&>option]:text-ink`}>
+            <select ref={topicRef} name="topic" required defaultValue="studio_project" className={`${field} cursor-pointer [&>option]:text-ink`}>
               {enquiryTopics.map((t) => (
                 <option key={t.value} value={t.value}>
                   {t.label}

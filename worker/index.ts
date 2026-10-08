@@ -132,6 +132,7 @@ async function handleEnquiry(request: Request, env: Env): Promise<Response> {
   }
 
   // Honeypot and fill time: answer as if it worked so bots learn nothing.
+  // Both are heuristics that stop naive scripts; the rate limit is the backstop.
   const elapsed = Number(data.elapsed);
   if (text(data.website, 200) || !Number.isFinite(elapsed) || elapsed < MIN_FILL_MS) {
     return json(200, { ok: true });

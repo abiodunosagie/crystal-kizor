@@ -12,7 +12,6 @@ import { EASE_OUT } from "@/lib/motion";
 // The statement and intro paragraph are the largest paint on phones, so they
 // ship as plain HTML with no entrance motion; the rest moves with transforms
 // only, never starting hidden.
-
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduce = usePrefersReducedMotion();
