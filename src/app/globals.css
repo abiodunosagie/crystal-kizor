@@ -66,55 +66,6 @@
   .gutter {
     padding-inline: var(--gutter);
   }
-  /* Section edges fade from the previous colour into this one across the
-     empty top padding, so the page dissolves between surfaces while text
-     always sits on its own, fully contrasting background. */
-  .fade-in-from-cream,
-  .fade-in-from-night,
-  .fade-in-from-ink {
-    --fade: 96px;
-    /* Eased stops instead of a straight ramp, which looks muddy between
-       colours this far apart in lightness. */
-    background-image: linear-gradient(
-      to bottom,
-      var(--from) 0,
-      color-mix(in srgb, var(--from) 82%, transparent) calc(var(--fade) * 0.2),
-      color-mix(in srgb, var(--from) 50%, transparent) calc(var(--fade) * 0.45),
-      color-mix(in srgb, var(--from) 20%, transparent) calc(var(--fade) * 0.72),
-      transparent var(--fade)
-    );
-  }
-  @media (min-width: 48rem) {
-    .fade-in-from-cream,
-    .fade-in-from-night,
-    .fade-in-from-ink {
-      --fade: 150px;
-    }
-  }
-  .fade-in-from-cream {
-    --from: var(--color-cream);
-  }
-  .fade-in-from-night {
-    --from: var(--color-night);
-  }
-  .fade-in-from-ink {
-    --from: var(--color-ink);
-  }
-  /* Bottom edge of the paper section fades into the cream that follows. */
-  .fade-out-to-cream {
-    --fade: 96px;
-    background-image: linear-gradient(
-      to top,
-      var(--color-cream) 0,
-      color-mix(in srgb, var(--color-cream) 50%, transparent) calc(var(--fade) * 0.45),
-      transparent var(--fade)
-    );
-  }
-  @media (min-width: 48rem) {
-    .fade-out-to-cream {
-      --fade: 150px;
-    }
-  }
   /* Measure-limited blocks sit centred on phones and on the reading edge from md. */
   .center-mobile {
     margin-inline: auto;

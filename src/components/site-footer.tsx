@@ -5,7 +5,7 @@ import { social, ventures } from "@/lib/content";
 
 export function SiteFooter() {
   return (
-    <footer className="fade-in-from-ink bg-cream">
+    <footer className="bg-cream">
       <SignOff />
       <div className="gutter mx-auto grid max-w-[1440px] grid-cols-1 gap-12 py-16 max-md:text-center md:grid-cols-12 md:py-20">
         <div className="md:col-span-4">
