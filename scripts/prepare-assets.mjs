@@ -99,10 +99,13 @@ async function logo(name, box, scale = 2) {
     rgba[i * 4 + 2] = INK.b;
     rgba[i * 4 + 3] = alpha;
   }
-  await sharp(rgba, { raw: { width: info.width, height: info.height, channels: 4 } })
+  const mark = await sharp(rgba, { raw: { width: info.width, height: info.height, channels: 4 } })
     .resize({ width: info.width * scale, kernel: "lanczos3" })
     .png({ compressionLevel: 9 })
-    .toFile(path.join(OUT_BRAND, `logo-${name}.png`));
+    .toBuffer();
+  // The PNG feeds the icon and Open Graph generators; pages load the WebP.
+  await writeFile(path.join(OUT_BRAND, `logo-${name}.png`), mark);
+  await sharp(mark).webp({ quality: 90, alphaQuality: 100 }).toFile(path.join(OUT_BRAND, `logo-${name}.webp`));
 }
 
 async function icons() {

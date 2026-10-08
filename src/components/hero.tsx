@@ -8,8 +8,9 @@ import { TrackedLink } from "@/components/tracked-link";
 import { doors, person } from "@/lib/content";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 
-// Entrance motion is transform-only: the hero text and portrait are the
-// largest paint, so they must be visible in the first HTML, not after hydration.
+// The statement and intro paragraph are the largest paint on phones, so they
+// ship as plain HTML with no entrance motion; the rest moves with transforms
+// only, never starting hidden.
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
@@ -41,7 +42,7 @@ export function Hero() {
               transition={{ duration: 1.1, delay: 0.15, ease }}
             >
               <Image
-                src="/brand/logo-primary.png"
+                src="/brand/logo-primary.webp"
                 alt=""
                 width={1532}
                 height={688}
@@ -52,24 +53,14 @@ export function Hero() {
             </motion.span>
           </h1>
 
-          <motion.p
-            className="display mt-10 max-w-[18ch] text-[2.1rem] leading-[1.05] md:text-[2.9rem]"
-            initial={{ y: 16 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.9, delay: 0.45, ease }}
-          >
+          <p className="display mt-10 max-w-[18ch] text-[2.1rem] leading-[1.05] md:text-[2.9rem]">
             Building for this climate, and for the people in it.
-          </motion.p>
-          <motion.p
-            className="mt-6 max-w-[52ch] text-muted"
-            initial={{ y: 16 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.9, delay: 0.55, ease }}
-          >
+          </p>
+          <p className="mt-6 max-w-[52ch] text-muted">
             Crystal Kizor is {person.headlineFact} and the Design Director of
             Studio COKA. Architecture is where her work starts. From there it reaches into furniture, education, public
             speaking and the young people she believes will shape Africa&rsquo;s cities next.
-          </motion.p>
+          </p>
         </div>
 
         <div className="relative md:col-span-5">

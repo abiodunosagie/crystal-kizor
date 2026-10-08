@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="bg-cream">
       <div className="gutter mx-auto grid max-w-[1440px] grid-cols-1 gap-12 py-16 md:grid-cols-12 md:py-20">
         <div className="md:col-span-4">
-          <Image src="/brand/logo-social.png" alt="Crystal Kizor monogram" width={432} height={436} unoptimized className="h-auto w-20" />
+          <Image src="/brand/logo-social.webp" alt="Crystal Kizor monogram" width={432} height={436} unoptimized className="h-auto w-20" />
           <p className="mt-6 max-w-[34ch] text-muted">Architect and Design Director of Studio COKA, Enugu, Nigeria.</p>
         </div>
 

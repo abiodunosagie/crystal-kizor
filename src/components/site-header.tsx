@@ -75,7 +75,7 @@ export function SiteHeader() {
     >
       <div className="gutter mx-auto flex h-16 max-w-[1440px] items-center justify-between md:h-[72px]">
         <a href="#top" aria-label="Crystal Kizor, back to top" onClick={() => setOpen(false)}>
-          <Image src="/brand/logo-horizontal.png" alt="Crystal Kizor" width={1070} height={92} unoptimized className="h-[13px] w-auto md:h-[15px]" />
+          <Image src="/brand/logo-horizontal.webp" alt="Crystal Kizor" width={1070} height={92} unoptimized className="h-[13px] w-auto md:h-[15px]" />
         </a>
 
         <nav aria-label="Main" className="hidden items-center gap-9 md:flex">

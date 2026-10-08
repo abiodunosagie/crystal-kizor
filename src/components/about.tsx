@@ -48,7 +48,7 @@ export function About() {
               ))}
             </ul>
             <Image
-              src="/brand/logo-signature.png"
+              src="/brand/logo-signature.webp"
               alt="Crystal Kizor signature"
               width={812}
               height={266}
