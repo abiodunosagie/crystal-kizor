@@ -136,7 +136,7 @@ function Sequence() {
 export function Build() {
   const elevated = venture("elevated");
   return (
-    <section id="build" className="bg-night text-cream">
+    <section id="build" className="fade-in-from-cream bg-night text-cream">
       <div className="gutter mx-auto max-w-[1440px] pt-28 max-md:text-center md:pt-40">
         <Reveal>
           <ChapterMarker pillar="build" tone="dark" />

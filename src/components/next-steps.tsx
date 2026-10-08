@@ -6,7 +6,7 @@ import { doors } from "@/lib/content";
 
 export function NextSteps() {
   return (
-    <section id="next" className="bg-ink text-cream">
+    <section id="next" className="fade-in-from-cream bg-ink text-cream">
       <div className="gutter mx-auto max-w-[1440px] py-28 max-md:text-center md:py-40">
         <Reveal>
           <h2 className="center-mobile display max-w-[16ch] text-[2.8rem] md:text-[4.4rem]"><RiseWords text="Find the right door." /></h2>

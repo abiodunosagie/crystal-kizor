@@ -11,7 +11,8 @@ import { contact, journal, mailto, speakingTopics, subjects, venture } from "@/l
 export function Teach() {
   const tea = venture("tea");
   return (
-    <section id="teach" className="bg-paper">
+    <section id="teach" className="fade-in-from-night bg-paper">
+      <div className="fade-out-to-cream">
       <div className="gutter mx-auto max-w-[1440px] py-28 max-md:text-center md:py-40">
         <Reveal>
           <ChapterMarker pillar="teach" />
@@ -108,6 +109,7 @@ export function Teach() {
             </ul>
           </Reveal>
         </div>
+      </div>
       </div>
     </section>
   );
