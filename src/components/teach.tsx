@@ -1,9 +1,10 @@
 import { ButtonLink } from "@/components/button-link";
+import { ChapterMarker } from "@/components/chapter-marker";
 import { Photo } from "@/components/photo";
 import { PlaceholderNote } from "@/components/placeholder-note";
 import { Reveal } from "@/components/reveal";
 import { TrackedLink } from "@/components/tracked-link";
-import { contact, journal, mailto, pillars, speakingTopics, subjects, venture } from "@/lib/content";
+import { contact, journal, mailto, speakingTopics, subjects, venture } from "@/lib/content";
 
 export function Teach() {
   const tea = venture("tea");
@@ -11,10 +12,8 @@ export function Teach() {
     <section id="teach" className="bg-paper">
       <div className="gutter mx-auto max-w-[1440px] py-28 max-md:text-center md:py-40">
         <Reveal>
-          <p className="eyebrow text-earth">
-            {pillars.teach.index} · {pillars.teach.title}
-          </p>
-          <h2 className="display mx-auto mt-6 max-w-[22ch] md:mx-0 text-[2.8rem] md:text-[4.4rem]">
+          <ChapterMarker pillar="teach" />
+          <h2 className="center-mobile display mt-6 max-w-[22ch] text-[2.8rem] md:text-[4.4rem]">
             Teaching, speaking and writing for the profession
           </h2>
         </Reveal>
@@ -51,7 +50,7 @@ export function Teach() {
         <div id="speaking" className="mt-24 grid grid-cols-1 gap-12 border-t border-line pt-16 md:mt-32 md:grid-cols-12 md:gap-10">
           <Reveal className="md:col-span-5">
             <h3 className="display text-[2.4rem] md:text-[3rem]">Speaking</h3>
-            <p className="mx-auto mt-5 max-w-[44ch] text-muted md:mx-0">
+            <p className="center-mobile mt-5 max-w-[44ch] text-muted">
               Talks, conversations and engagements, grounded in the work of a practising architect and studio founder.
             </p>
             <div className="mt-8">
@@ -80,7 +79,7 @@ export function Teach() {
         <div id="writing" className="mt-24 grid grid-cols-1 gap-12 border-t border-line pt-16 md:mt-32 md:grid-cols-12 md:gap-10">
           <Reveal className="md:col-span-5">
             <h3 className="display text-[2.4rem] md:text-[3rem]">Research &amp; writing</h3>
-            <p className="mx-auto mt-5 max-w-[44ch] text-muted md:mx-0">
+            <p className="center-mobile mt-5 max-w-[44ch] text-muted">
               Architecture, research, writing and ideas under her own name. Recent notes from the Studio COKA journal:
             </p>
           </Reveal>

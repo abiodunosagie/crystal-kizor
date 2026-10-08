@@ -67,6 +67,15 @@
   .gutter {
     padding-inline: var(--gutter);
   }
+  /* Measure-limited blocks sit centred on phones and on the reading edge from md. */
+  .center-mobile {
+    margin-inline: auto;
+  }
+  @media (min-width: 48rem) {
+    .center-mobile {
+      margin-inline: 0;
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

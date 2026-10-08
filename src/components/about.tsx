@@ -30,7 +30,7 @@ export function About() {
             <p className="mt-3 text-caption text-muted md:pl-6">The question Studio COKA begins with</p>
           </Reveal>
           <Reveal delay={0.15}>
-            <p className="mx-auto mt-8 max-w-[58ch] md:mx-0">
+            <p className="center-mobile mt-8 max-w-[58ch]">
               Crystal answers it first as an architect, with buildings that work with heat, light and air instead of
               fighting them. Then she keeps going: into the furniture people live with, the education architects
               receive, the stages where the built environment is debated, and the young people who will inherit it.
@@ -49,7 +49,7 @@ export function About() {
               width={812}
               height={266}
               unoptimized
-              className="mx-auto mt-10 h-auto w-[180px] md:mx-0"
+              className="center-mobile mt-10 h-auto w-[180px]"
             />
           </Reveal>
         </div>
@@ -59,7 +59,7 @@ export function About() {
         <div className="max-md:text-center">
         <Reveal>
           <h2 className="display text-[2.6rem] md:text-[3.6rem]">What she is building</h2>
-          <p className="mx-auto mt-4 max-w-[52ch] text-muted md:mx-0">
+          <p className="center-mobile mt-4 max-w-[52ch] text-muted">
             Seven brands and initiatives, grouped by what each one does.
           </p>
         </Reveal>

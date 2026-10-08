@@ -5,8 +5,9 @@ import { useEffect, useRef, useState } from "react";
 import { ButtonLink } from "@/components/button-link";
 import { Photo } from "@/components/photo";
 import { PlaceholderNote } from "@/components/placeholder-note";
+import { ChapterMarker } from "@/components/chapter-marker";
 import { Reveal } from "@/components/reveal";
-import { contact, pillars, studioFacts, studioFrames, STUDIO_SOURCE, venture, type Frame } from "@/lib/content";
+import { contact, studioFacts, studioFrames, STUDIO_SOURCE, venture, type Frame } from "@/lib/content";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 
 // How far the strip must travel for its last frame to end flush with the
@@ -39,7 +40,7 @@ function FrameCard({ frame }: { frame: Frame }) {
           sizes="(min-width: 1024px) 26vw, (min-width: 768px) 30vw, 78vw"
         />
         <span
-          className={`absolute left-3 top-3 px-2 py-1 text-caption font-semibold uppercase tracking-[0.05em] ${
+          className={`absolute left-3 top-3 px-2 py-1 text-caption font-semibold ${
             frame.status === "Completed" ? "bg-cream text-ink" : "bg-night text-cream"
           }`}
         >
@@ -116,9 +117,7 @@ export function Build() {
     <section id="build" className="bg-night text-cream">
       <div className="gutter mx-auto max-w-[1440px] pt-28 max-md:text-center md:pt-40">
         <Reveal>
-          <p className="eyebrow text-earth-soft">
-            {pillars.build.index} · {pillars.build.title}
-          </p>
+          <ChapterMarker pillar="build" tone="dark" />
         </Reveal>
         <div className="mt-6 grid grid-cols-1 gap-10 md:grid-cols-12">
           <Reveal className="md:col-span-7">
@@ -132,7 +131,7 @@ export function Build() {
               from first sketch to final handover. Every project is shaped by the climate, the site and the people who
               will use the space.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row max-md:justify-center md:flex-col lg:flex-row">
               <ButtonLink
                 href={contact.studioHire}
                 event="generate_lead"
@@ -159,10 +158,15 @@ export function Build() {
           {studioFacts.map((f) => (
             <div
               key={f.value}
-              className="flex flex-col-reverse border-b border-cream/20 py-8 sm:border-b-0 sm:text-left sm:border-r sm:px-8 sm:first:pl-0 sm:last:border-r-0"
+              className="flex flex-col-reverse border-b border-cream/20 py-8 sm:border-b-0 md:text-left sm:border-r sm:px-8 sm:first:pl-0 sm:last:border-r-0"
             >
-              <dt className="mx-auto mt-3 max-w-[30ch] text-[0.95rem] text-cream/75 sm:mx-0">{f.label}</dt>
-              <dd className="display text-[4rem] leading-none text-earth-soft md:text-[5.2rem]">
+              {/* The figure is drawn above its label; the label carries the full
+                  sentence for assistive technology, so the visual figure is hidden. */}
+              <dt className="center-mobile mt-3 max-w-[30ch] text-[0.95rem] text-cream/75">
+                <span className="sr-only">{[f.prefix, f.value].filter(Boolean).join(" ")} </span>
+                {f.label}
+              </dt>
+              <dd aria-hidden className="display text-[4rem] leading-none text-earth-soft md:text-[5.2rem]">
                 {f.prefix ? <span className="mr-2 align-baseline font-sans text-[1rem] font-semibold">{f.prefix}</span> : null}
                 {f.value}
               </dd>
@@ -178,7 +182,7 @@ export function Build() {
         </p>
 
         <Reveal className="mt-24 md:mt-28">
-          <p className="mx-auto max-w-[48ch] text-cream/80 md:mx-0">
+          <p className="center-mobile max-w-[48ch] text-cream/80">
             Nature Home, photographed on site, followed by two projects in design. Scroll or swipe to walk through.
           </p>
         </Reveal>
@@ -192,7 +196,7 @@ export function Build() {
         <div className="grid grid-cols-1 gap-10 border-t border-cream/20 pt-14 max-md:text-center md:grid-cols-12">
           <Reveal className="md:col-span-5">
             <h3 className="display text-[2.6rem] md:text-[3.4rem]">{elevated.name}</h3>
-            <p className="mx-auto mt-4 max-w-[46ch] text-cream/80 md:mx-0">
+            <p className="center-mobile mt-4 max-w-[46ch] text-cream/80">
               Design at the scale of the hand. {elevated.line}
             </p>
             <PlaceholderNote tone="dark">collection link and product photography to follow.</PlaceholderNote>

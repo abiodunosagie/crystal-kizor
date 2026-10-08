@@ -42,15 +42,15 @@ export function Hero() {
                 height={688}
                 unoptimized
                 priority
-                className="mx-auto h-auto w-full max-w-[640px] md:mx-0"
+                className="center-mobile h-auto w-full max-w-[640px]"
               />
             </motion.span>
           </h1>
 
-          <p className="display mx-auto mt-10 max-w-[18ch] md:mx-0 text-[2.1rem] leading-[1.05] md:text-[2.9rem]">
+          <p className="center-mobile display mt-10 max-w-[18ch] text-[2.1rem] leading-[1.05] md:text-[2.9rem]">
             Building for this climate, and for the people in it.
           </p>
-          <p className="mx-auto mt-6 max-w-[52ch] text-muted md:mx-0">
+          <p className="center-mobile mt-6 max-w-[52ch] text-muted">
             Crystal Kizor is {person.headlineFact} and the Design Director of
             Studio COKA. Architecture is where her work starts. From there it reaches into furniture, education, public
             speaking and the young people she believes will shape Africa&rsquo;s cities next.

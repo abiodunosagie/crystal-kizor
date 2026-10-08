@@ -1,8 +1,9 @@
 import { ButtonLink } from "@/components/button-link";
+import { ChapterMarker } from "@/components/chapter-marker";
 import { Photo } from "@/components/photo";
 import { PlaceholderNote } from "@/components/placeholder-note";
 import { Reveal } from "@/components/reveal";
-import { mailto, pillars, subjects, venture } from "@/lib/content";
+import { mailto, subjects, venture } from "@/lib/content";
 
 export function Give() {
   const ako = venture("ako");
@@ -10,10 +11,8 @@ export function Give() {
   return (
     <section id="give" className="gutter mx-auto max-w-[1440px] py-28 max-md:text-center md:py-40">
       <Reveal>
-        <p className="eyebrow text-earth">
-          {pillars.give.index} · {pillars.give.title}
-        </p>
-        <h2 className="display mx-auto mt-6 max-w-[20ch] md:mx-0 text-[2.8rem] md:text-[4.4rem]">
+        <ChapterMarker pillar="give" />
+        <h2 className="center-mobile display mt-6 max-w-[20ch] text-[2.8rem] md:text-[4.4rem]">
           Education and faith for the next generation
         </h2>
       </Reveal>

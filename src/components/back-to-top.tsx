@@ -13,8 +13,8 @@ export function BackToTop() {
   const [visible, setVisible] = useState(false);
   useMotionValueEvent(scrollY, "change", (y) => setVisible(y > window.innerHeight * 1.5));
 
-  // After a long jump (menu link, anchor) the spring would start from where it
-  // last was; snap it to the real position as the button appears.
+  // Each time the button appears, start the outline at the true position: after
+  // a long jump (menu link, anchor) the spring would otherwise sweep up from 0.
   useEffect(() => {
     if (visible) progress.jump(scrollYProgress.get());
   }, [visible, progress, scrollYProgress]);

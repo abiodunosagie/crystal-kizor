@@ -7,8 +7,8 @@ export function SiteFooter() {
     <footer className="bg-cream">
       <div className="gutter mx-auto grid max-w-[1440px] grid-cols-1 gap-12 py-16 max-md:text-center md:grid-cols-12 md:py-20">
         <div className="md:col-span-4">
-          <Image src="/brand/logo-social.webp" alt="Crystal Kizor monogram" width={432} height={436} unoptimized className="mx-auto h-auto w-16 md:mx-0" />
-          <p className="mx-auto mt-6 max-w-[34ch] text-muted md:mx-0">Architect and Design Director of Studio COKA, Enugu, Nigeria.</p>
+          <Image src="/brand/logo-social.webp" alt="Crystal Kizor monogram" width={432} height={436} unoptimized className="center-mobile h-auto w-16" />
+          <p className="center-mobile mt-6 max-w-[34ch] text-muted">Architect and Design Director of Studio COKA, Enugu, Nigeria.</p>
         </div>
 
         <nav aria-label="The work" className="md:col-span-3 md:col-start-6">

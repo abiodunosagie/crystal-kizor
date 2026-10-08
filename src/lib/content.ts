@@ -147,7 +147,7 @@ export function venture(id: string): Venture {
 export const studioFacts = [
   { prefix: "Up to", value: "70%", label: "less energy demand in the studio's climate-responsive designs" },
   { prefix: "Up to", value: "90%", label: "less cooling required" },
-  { prefix: "", value: "95%", label: "less diesel at Nigeria's first fully off-grid hospital, designed by Crystal" },
+  { value: "95%", label: "less diesel at Nigeria's first fully off-grid hospital, designed by Crystal" },
 ];
 
 export type Frame = {
