@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useLenis } from "lenis/react";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { TrackedLink } from "@/components/tracked-link";
 import { track } from "@/lib/track";
@@ -16,7 +16,8 @@ const links = [
 
 export function SiteHeader() {
   const lenis = useLenis();
-  const { scrollY } = useScroll();
+  const { scrollY, scrollYProgress } = useScroll();
+  const reading = useSpring(scrollYProgress, { stiffness: 200, damping: 34, restDelta: 0.001 });
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
@@ -180,6 +181,12 @@ export function SiteHeader() {
           </motion.nav>
         ) : null}
       </AnimatePresence>
+      {/* Desktop reading progress along the header's lower edge. */}
+      <motion.div
+        aria-hidden
+        className="absolute inset-x-0 bottom-[-1px] hidden h-[2px] origin-left bg-earth md:block"
+        style={{ scaleX: reading, opacity: solid ? 1 : 0 }}
+      />
     </header>
   );
 }
