@@ -15,13 +15,6 @@ next-env.d.ts
 # source photography (only the optimised output in /public is committed)
 /assets/
 
-# local working notes and editor/tool files
-/ASSESSMENT.md
-/EXPLAIN.md
-AGENTS.md
-CLAUDE.md
-.dev/
-
 # misc
 .DS_Store
 *.pem
