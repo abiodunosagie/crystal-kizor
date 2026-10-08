@@ -6,6 +6,7 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } fr
 import { useEffect, useRef, useState } from "react";
 import { TrackedLink } from "@/components/tracked-link";
 import { track } from "@/lib/track";
+import { EASE_OUT } from "@/lib/motion";
 
 const links = [
   { href: "#about", label: "About" },
@@ -154,7 +155,7 @@ export function SiteHeader() {
                   key={l.href}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.05 * i, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ delay: 0.05 * i, duration: 0.4, ease: EASE_OUT }}
                   className="border-b border-line"
                 >
                   <a

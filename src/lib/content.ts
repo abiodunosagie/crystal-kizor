@@ -149,7 +149,7 @@ export const studioFacts = [
 ];
 
 // studiocoka.com home page and /projects/nigeria-first-off-grid-hospital.
-export const featured = {
+export const featuredProject = {
   name: "TESH Nsukka",
   title: "Nigeria’s first fully off-grid hospital",
   place: "Nsukka, Enugu",

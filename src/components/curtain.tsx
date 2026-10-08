@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef, type ReactNode } from "react";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
+import { EASE_OUT } from "@/lib/motion";
 
 // A photograph opens upward like a curtain as it enters the screen, then
 // drifts a little slower than the page. Fills a sized, relative parent.
@@ -22,7 +23,7 @@ export function Curtain({ children }: { children: ReactNode }) {
       whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
       viewport={{ once: true, margin: "0px 0px -8% 0px" }}
       // clip-path is not covered by MotionConfig's reduced-motion handling.
-      transition={{ duration: reduce ? 0 : 1.1, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: reduce ? 0 : 1.1, ease: EASE_OUT }}
     >
       <motion.div className="absolute inset-[-5%_0]" style={{ y }}>
         {children}

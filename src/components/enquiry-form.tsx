@@ -1,29 +1,54 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { contact } from "@/lib/content";
+import { enquiryTopics } from "@/lib/enquiry-topics";
 import { track } from "@/lib/track";
-
-const topics = [
-  { value: "studio_project", label: "A project with Studio COKA" },
-  { value: "speaking", label: "Speaking or media" },
-  { value: "ako_partner", label: "Partnering with AKO Alliance" },
-  { value: "tea", label: "The Effective Architect" },
-  { value: "elevated", label: "ELEvated furniture" },
-  { value: "general", label: "Something else" },
-];
 
 type Status = { state: "idle" | "sending" | "sent" } | { state: "error"; message: string };
 
 const field =
-  "block w-full border-0 border-b border-cream/35 bg-transparent px-0 py-3 text-cream placeholder:text-cream/45 focus:border-earth-soft focus:outline-none focus:ring-0";
+  "mt-1 block w-full border-0 border-b border-cream/35 bg-transparent px-0 py-3 text-cream placeholder:text-cream/45 focus:border-earth-soft focus:outline-none focus:ring-0";
+
+function Field({ label, wide, children }: { label: string; wide?: boolean; children: ReactNode }) {
+  return (
+    <label className={`block ${wide ? "md:col-span-2" : ""}`}>
+      <span className="text-[0.95rem] font-semibold">{label}</span>
+      {children}
+    </label>
+  );
+}
+
+function EmailFallback() {
+  return (
+    <p className="text-[0.95rem] text-cream/75 max-md:text-center">
+      Or email{" "}
+      <a href={`mailto:${contact.email}`} className="font-semibold text-cream underline underline-offset-4 hover:text-earth-soft">
+        {contact.email}
+      </a>
+    </p>
+  );
+}
 
 export function EnquiryForm() {
   const [status, setStatus] = useState<Status>({ state: "idle" });
-  const started = useRef(0);
+  // The form only works with JavaScript; until it has loaded (or without it)
+  // visitors see the email address instead of a form that would go nowhere.
+  const ready = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
+  const openedAt = useRef(0);
+  const thanksRef = useRef<HTMLHeadingElement>(null);
+
   useEffect(() => {
-    started.current = Date.now();
+    openedAt.current = performance.now();
   }, []);
+
+  useEffect(() => {
+    if (status.state === "sent") thanksRef.current?.focus();
+  }, [status.state]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -34,7 +59,8 @@ export function EnquiryForm() {
       const res = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ ...data, started: started.current }),
+        // How long the form was open, measured on this device only.
+        body: JSON.stringify({ ...data, elapsed: Math.round(performance.now() - openedAt.current) }),
       });
       const body = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
       if (!res.ok || !body.ok) {
@@ -49,83 +75,84 @@ export function EnquiryForm() {
     }
   }
 
-  if (status.state === "sent") {
-    return (
-      <div role="status" className="border-t border-cream/30 pt-8">
-        <p className="display text-[2rem] leading-tight md:text-[2.4rem]">Thank you. Your message is on its way.</p>
-        <p className="mt-4 text-cream/75">A reply will come to the email address you gave.</p>
-        <button
-          type="button"
-          onClick={() => setStatus({ state: "idle" })}
-          className="mt-8 font-semibold text-earth-soft underline-offset-4 hover:underline"
-        >
-          Send another message
-        </button>
-      </div>
-    );
-  }
-
   const sending = status.state === "sending";
   return (
-    <form onSubmit={onSubmit} noValidate={false} className="grid grid-cols-1 gap-8 text-left md:grid-cols-2 md:gap-x-10">
-      <label className="block md:col-span-2">
-        <span className="text-[0.95rem] font-semibold">I&rsquo;m writing about</span>
-        <select name="topic" required defaultValue="studio_project" className={`${field} mt-1 cursor-pointer [&>option]:text-ink`}>
-          {topics.map((t) => (
-            <option key={t.value} value={t.value}>
-              {t.label}
-            </option>
-          ))}
-        </select>
-      </label>
-      <label className="block">
-        <span className="text-[0.95rem] font-semibold">Name</span>
-        <input name="name" required maxLength={120} autoComplete="name" className={`${field} mt-1`} />
-      </label>
-      <label className="block">
-        <span className="text-[0.95rem] font-semibold">Email</span>
-        <input name="email" type="email" required maxLength={200} autoComplete="email" className={`${field} mt-1`} />
-      </label>
-      <label className="block md:col-span-2">
-        <span className="text-[0.95rem] font-semibold">Message</span>
-        <textarea
-          name="message"
-          required
-          minLength={10}
-          maxLength={4000}
-          rows={4}
-          placeholder="A few lines about what you have in mind"
-          className={`${field} mt-1 resize-y`}
-        />
-      </label>
-
-      {/* Left empty by people; filled in by most form-filling bots. */}
-      <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
-        <label>
-          Website
-          <input name="website" tabIndex={-1} autoComplete="off" />
-        </label>
-      </div>
-
-      <div className="flex flex-col gap-4 md:col-span-2 md:flex-row md:items-center md:justify-between">
-        <button
-          type="submit"
-          disabled={sending}
-          className="w-full bg-cream px-8 py-4 font-semibold text-ink transition-colors hover:bg-earth-soft disabled:opacity-60 md:w-auto"
-        >
-          {sending ? "Sending" : "Send message"}
-        </button>
-        <p className="text-[0.95rem] text-cream/75 max-md:text-center">
-          Or email{" "}
-          <a href={`mailto:${contact.email}`} className="font-semibold text-cream underline underline-offset-4 hover:text-earth-soft">
-            {contact.email}
-          </a>
-        </p>
-      </div>
-
-      <p aria-live="polite" className="text-[0.95rem] text-earth-soft md:col-span-2">
-        {status.state === "error" ? status.message : ""}
+    <div>
+      {/* One persistent live region, so assistive technology hears every outcome. */}
+      <p aria-live="polite" className="sr-only">
+        {status.state === "sent" ? "Message sent." : status.state === "error" ? status.message : ""}
       </p>
-    </form>
+
+      {!ready ? (
+        <EmailFallback />
+      ) : status.state === "sent" ? (
+        <div className="border-t border-cream/30 pt-8 max-md:text-center">
+          <h4 ref={thanksRef} tabIndex={-1} className="display text-[2rem] leading-tight outline-none md:text-[2.4rem]">
+            Thank you. Your message is on its way.
+          </h4>
+          <p className="mt-4 text-cream/75">A reply will come to the email address you gave.</p>
+          <button
+            type="button"
+            onClick={() => {
+              setStatus({ state: "idle" });
+              openedAt.current = performance.now();
+            }}
+            className="mt-8 font-semibold text-earth-soft underline-offset-4 hover:underline"
+          >
+            Send another message
+          </button>
+        </div>
+      ) : (
+        <form onSubmit={onSubmit} className="grid grid-cols-1 gap-8 text-left md:grid-cols-2 md:gap-x-10">
+          <Field label="I’m writing about" wide>
+            <select name="topic" required defaultValue="studio_project" className={`${field} cursor-pointer [&>option]:text-ink`}>
+              {enquiryTopics.map((t) => (
+                <option key={t.value} value={t.value}>
+                  {t.label}
+                </option>
+              ))}
+            </select>
+          </Field>
+          <Field label="Name">
+            <input name="name" required maxLength={120} autoComplete="name" className={field} />
+          </Field>
+          <Field label="Email">
+            <input name="email" type="email" required maxLength={200} autoComplete="email" className={field} />
+          </Field>
+          <Field label="Message" wide>
+            <textarea
+              name="message"
+              required
+              minLength={10}
+              maxLength={4000}
+              rows={4}
+              placeholder="A few lines about what you have in mind"
+              className={`${field} resize-y`}
+            />
+          </Field>
+
+          {/* Left empty by people; filled in by most form-filling bots. */}
+          <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
+            <label>
+              Website
+              <input name="website" tabIndex={-1} autoComplete="off" />
+            </label>
+          </div>
+
+          <div className="flex flex-col gap-4 md:col-span-2 md:flex-row md:items-center md:justify-between">
+            <button
+              type="submit"
+              disabled={sending}
+              className="w-full bg-cream px-8 py-4 font-semibold text-ink transition-colors hover:bg-earth-soft disabled:opacity-60 md:w-auto"
+            >
+              {sending ? "Sending" : "Send message"}
+            </button>
+            <EmailFallback />
+          </div>
+
+          {status.state === "error" ? <p className="text-[0.95rem] text-earth-soft md:col-span-2">{status.message}</p> : null}
+        </form>
+      )}
+    </div>
   );
 }

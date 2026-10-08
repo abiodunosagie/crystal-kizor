@@ -8,6 +8,7 @@ import { Photo } from "@/components/photo";
 import { PlaceholderNote } from "@/components/placeholder-note";
 import { ChapterMarker } from "@/components/chapter-marker";
 import { FeaturedProject } from "@/components/featured-project";
+import { FigureList } from "@/components/figure-list";
 import { Reveal } from "@/components/reveal";
 import { RiseWords } from "@/components/rise-words";
 import { contact, studioFacts, studioFrames, STUDIO_SOURCE, venture, type Frame } from "@/lib/content";
@@ -102,6 +103,7 @@ function SwipeStrip({ className = "" }: { className?: string }) {
     const el = e.currentTarget;
     const card = el.firstElementChild as HTMLElement | null;
     if (!card) return;
+    // Cards share one width, so card plus gap is the distance between snaps.
     const step = card.offsetWidth + parseFloat(getComputedStyle(el).columnGap || "0");
     setCurrent(Math.min(studioFrames.length, Math.round(el.scrollLeft / step) + 1));
   };
@@ -113,7 +115,7 @@ function SwipeStrip({ className = "" }: { className?: string }) {
       >
         <Frames />
       </div>
-      <p className="gutter mt-2 flex items-center justify-between text-[0.95rem] text-cream/75" aria-live="polite">
+      <p className="gutter mt-2 flex items-center justify-between text-[0.95rem] text-cream/75">
         <span>
           {current} of {studioFrames.length}
         </span>
@@ -176,25 +178,7 @@ export function Build() {
           </Reveal>
         </div>
 
-        <dl className="mt-20 grid grid-cols-1 border-t border-cream/20 sm:grid-cols-2 md:w-2/3">
-          {studioFacts.map((f) => (
-            <div
-              key={f.value}
-              className="flex flex-col-reverse border-b border-cream/20 py-8 sm:border-b-0 md:text-left sm:border-r sm:px-8 sm:first:pl-0 sm:last:border-r-0"
-            >
-              {/* The figure is drawn above its label; the label carries the full
-                  sentence for assistive technology, so the visual figure is hidden. */}
-              <dt className="center-mobile mt-3 max-w-[30ch] text-[0.95rem] text-cream/75">
-                <span className="sr-only">{[f.prefix, f.value].filter(Boolean).join(" ")} </span>
-                {f.label}
-              </dt>
-              <dd aria-hidden className="display text-[4rem] leading-none text-earth-soft md:text-[5.2rem]">
-                {f.prefix ? <span className="mr-2 align-baseline font-sans text-[1rem] font-semibold">{f.prefix}</span> : null}
-                {f.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <FigureList items={studioFacts} size="large" className="mt-20 sm:grid-cols-2 md:w-2/3" />
         <p className="mt-4 text-caption text-cream/70">
           Figures as published by{" "}
           <a href={STUDIO_SOURCE} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-cream">

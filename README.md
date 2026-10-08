@@ -70,11 +70,16 @@ src/
     enquiry-form.tsx      form states, posts to /api/enquiry
     sign-off.tsx          signature and wordmark that close the page
     site-header.tsx, site-footer.tsx
-    photo.tsx, reveal.tsx, tracked-link.tsx, smooth-scroll.tsx
+    chapter-marker.tsx, figure-list.tsx, button-link.tsx, placeholder-note.tsx
+    rise-words.tsx        headings revealed word by word
+    curtain.tsx           photographs opening on entry, slow drift
+    photo.tsx, reveal.tsx, tracked-link.tsx, smooth-scroll.tsx, back-to-top.tsx
   lib/
     content.ts            every brand, fact, route and link in one place
     track.ts              analytics event helper
     image-loader.ts       picks the right pre-built image width
+    enquiry-topics.ts     form topics, shared with the Worker allow-list
+    motion.ts             the one easing curve used across the page
 worker/
   index.ts                enquiry endpoint: validation, honeypot, throttle, email via Resend
 scripts/
@@ -102,7 +107,7 @@ npm run assets
 
 ### Enquiry form
 
-The form posts to `/api/enquiry`, handled by `worker/index.ts`. It validates the fields, ignores bots (a hidden honeypot field and a minimum fill time), slows down repeat senders and sends a plain-text email through [Resend](https://resend.com) with the visitor's address as reply-to. Configure it with:
+The form posts to `/api/enquiry`, handled by `worker/index.ts`. It reads the body with a hard size cap, validates every field, ignores obvious bots (a hidden honeypot field and a minimum time the form was open, measured on the visitor's device), limits each address to two messages a minute through Cloudflare's rate limiting binding and sends a plain-text email through [Resend](https://resend.com) with the visitor's address as reply-to. Configure it with:
 
 | Variable | Purpose |
 |---|---|

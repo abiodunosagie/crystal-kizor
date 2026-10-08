@@ -3,6 +3,7 @@
 import { useLenis } from "lenis/react";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from "motion/react";
 import { useEffect, useState } from "react";
+import { EASE_OUT } from "@/lib/motion";
 
 // Phones only (desktop uses the footer link). Its outline fills as the page is
 // read, so it doubles as a progress indicator. Kept clear of the home bar.
@@ -36,7 +37,7 @@ export function BackToTop() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 12 }}
-          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.3, ease: EASE_OUT }}
         >
           <svg aria-hidden className="absolute inset-0 h-full w-full" viewBox="0 0 48 48" fill="none">
             <rect x="1" y="1" width="46" height="46" stroke="currentColor" strokeOpacity="0.2" strokeWidth="2" />

@@ -7,11 +7,11 @@ import { Photo } from "@/components/photo";
 import { TrackedLink } from "@/components/tracked-link";
 import { doors, person } from "@/lib/content";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
+import { EASE_OUT } from "@/lib/motion";
 
 // The statement and intro paragraph are the largest paint on phones, so they
 // ship as plain HTML with no entrance motion; the rest moves with transforms
 // only, never starting hidden.
-const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -33,7 +33,7 @@ export function Hero() {
               className="block"
               initial={{ y: 24 }}
               animate={{ y: 0 }}
-              transition={{ duration: 1.1, delay: 0.15, ease }}
+              transition={{ duration: 1.1, delay: 0.15, ease: EASE_OUT }}
             >
               <Image
                 src="/brand/logo-primary.webp"
@@ -62,7 +62,7 @@ export function Hero() {
             className="relative aspect-[4/5] overflow-hidden bg-sand md:aspect-[2/3]"
             initial={{ scale: 1.04 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.1, ease }}
+            transition={{ duration: 1.2, delay: 0.1, ease: EASE_OUT }}
           >
             <motion.div className="absolute inset-[-6%_0]" style={{ y: portraitY }}>
               <Photo
