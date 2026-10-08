@@ -90,12 +90,12 @@ export function Hero() {
           {doors
             .filter((d) => d.inHero)
             .map((d, i) => (
-            <li key={d.id} className="border-b border-line md:border-b-0 md:border-r md:last:border-r-0">
+            <li key={d.id} className="border-b border-line md:border-b-0 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
               <TrackedLink
                 href={d.href}
                 event={d.event}
                 params={{ location: "hero", door: d.id, ...(d.lead ? { lead_type: d.lead } : {}) }}
-                className="group flex h-full items-baseline justify-between gap-4 py-5 transition-colors hover:bg-paper md:flex-col md:items-start md:px-5 md:py-7 md:first:pl-0"
+                className="group flex h-full items-baseline justify-between gap-4 py-5 transition-colors hover:text-earth md:flex-col md:items-start md:py-7"
               >
                 <span className="flex items-baseline gap-3">
                   <span className="text-caption font-semibold text-earth">{String.fromCharCode(65 + i)}</span>

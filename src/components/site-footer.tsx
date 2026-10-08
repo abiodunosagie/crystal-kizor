@@ -46,6 +46,9 @@ export function SiteFooter() {
       <div className="gutter mx-auto flex max-w-[1440px] flex-col gap-2 border-t border-line py-6 text-[0.85rem] text-muted md:flex-row md:justify-between">
         <p>© 2026 Crystal Kizor</p>
         <p>Concept landing page prepared for Studio COKA, October 2026.</p>
+        <a href="#top" className="font-semibold text-ink hover:text-earth">
+          Back to top <span aria-hidden>↑</span>
+        </a>
       </div>
     </footer>
   );
