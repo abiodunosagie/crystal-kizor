@@ -1,0 +1,131 @@
+{
+  "images": {
+    "crystal-standing": {
+      "width": 1024,
+      "height": 1536,
+      "widths": [
+        640,
+        960,
+        1024
+      ],
+      "blur": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAABQBACdASoQABgAPu1iqU2ppaOiMAgBMB2JYwCdIMgqQBDL/Que4+a09FcAAP4LREeTFy3nwEfVtAWqXbM7MG+0PKfRHUxHf5nVV0B9EfG4fWEe8kgf0o4yv4qBFCYkDdvpHfVHF+ajenK1V3Hnk+cI8BlVK2G4KBcZvv1Nn0iX5I0cTNFNLnVnieWpwth1PajahV4AuFCC/IAA"
+    },
+    "crystal-arms-crossed": {
+      "width": 1374,
+      "height": 1145,
+      "widths": [
+        640,
+        960,
+        1374
+      ],
+      "blur": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAQAgCdASoQAA0AA4BaJYgCdAYulzm+xdmAAPeLgmeE8nrtYm8BvjjAqJvkFV6kt5JVPLW5zl/aa9Hb5HWA5imYrf6zxhTEtHmLSKs/y3t1nxmguaVh+BjL9EZVAp5GR2NqcYFj38ed0QAA"
+    },
+    "crystal-desk": {
+      "width": 1374,
+      "height": 1145,
+      "widths": [
+        640,
+        960,
+        1374
+      ],
+      "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQAgCdASoQAA0AA4BaJZACdAD8pcPuidIAAPvsaaBj2CO7KRdtnjz5Ny1v7ht58wNrY8tAofLf3oDMCXdH/O1Xcl1xkkBXs6wvSC2oOZZoHfSJbpR+U58c1AmBFDIkDOnqyhovVMq/3/AAAAA="
+    },
+    "crystal-white-shirt": {
+      "width": 1374,
+      "height": 1145,
+      "widths": [
+        640,
+        960,
+        1374
+      ],
+      "blur": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAQCdASoQAA0AA4BaJYgCdAEJ9q6kgAAA++xLwlHHOfGzikDe3zM7UHrLBYv0BQvdoLYfNNnuurD29lLCf++kOGxqZX/VKf6y5Rt7UfOwbqTvCK881U7YYHq7SPG6oR8bV0hovVMptwwAAAA="
+    },
+    "crystal-microphone": {
+      "width": 1374,
+      "height": 1145,
+      "widths": [
+        640,
+        960,
+        1374
+      ],
+      "blur": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAwAgCdASoQAA0AA4BaJZgCdAYuvakYRUA/gAD33mRAn2Ew/jgFzI8nEOpeJjWffL7yHfZ0CKq6cDlh6HKaK/w4lOsaBu6nRd6ddeAyMpvK23NGgOovDHQcIzVQhqrET64SYojhn/VTOjlukOrGSaCbEWVwAAAA"
+    },
+    "nature-home-front": {
+      "width": 804,
+      "height": 1080,
+      "widths": [
+        640,
+        804
+      ],
+      "blur": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACQAwCdASoQABYAPu1iqU2ppaOiMAgBMB2JYgC/OA9+VAXsGlFAAPouvnppy0RanInGVw2BFIieSBwtd/pXNCL+HgiT5AhdeMhnMIsNY+3zm0dXaV0f3A3/4ehrFpy2jP5iV+p5FhIkM+QigPGBOJcBrktWZiApESU4X7iAAAA="
+    },
+    "nature-home-cantilever": {
+      "width": 809,
+      "height": 1080,
+      "widths": [
+        640,
+        809
+      ],
+      "blur": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAwBACdASoQABUAPu1iqU2ppaOiMAgBMB2JaACdACHhEv/dAUpRhF7ZmQAA/FPy8vXNa5UPT5XElzOf6vqhtiOgdktrUR1+yUHSbUrhRGIpBoILL6E7zUyo1VuCXPz8VHtzzh5qZ/tzBU0VTx1IG9Pea2MTMU31v2Q6UtJjbnmgftkUjjHnZqX/VN0NFqxEt+AAAA=="
+    },
+    "nature-home-garden": {
+      "width": 795,
+      "height": 1062,
+      "widths": [
+        640,
+        795
+      ],
+      "blur": "data:image/webp;base64,UklGRrgAAABXRUJQVlA4IKwAAAAQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JQBfJMY7S8YMIl+sBbYA0kAD+sZotccBlZvkf7XqqZ741orZTmPGPA/AsW7srzAEm5ha2BT3dlRfT27M3/6i4UiNBGILY9/ubwmm0UMOjzPixwRtcLvXqopI3ZPll7LRSYMQDcp1J487Wx/eYBun2zsv58supuedUeuScErHg/Xw+3fc3Kb/LwLDZK0oWQ1KfiQAA"
+    },
+    "nature-home-living": {
+      "width": 950,
+      "height": 1440,
+      "widths": [
+        640,
+        950
+      ],
+      "blur": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABQBACdASoQABgAPu1iqU2ppaQiMAgBMB2JQBOmUGMACMzbAyLDbWe+Fm4AAP3i832IU8DV7d1qH4d5mXYPCAV27OhWO2VueTpuqbYht3+0+/Jyh/eX9Lcodbz+KoLFKAan4NPxp3DcsKGTrmbKgknTZk/HNM3BWDTsDOE5BOAaA3Q2r5oAAA=="
+    },
+    "nature-home-lounge": {
+      "width": 809,
+      "height": 1078,
+      "widths": [
+        640,
+        809
+      ],
+      "blur": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAACwBACdASoQABUAPu1iqU2ppaOiMAgBMB2JaACdMoR3ACXfm/+g/E1NuLb9G+lAAP5reAhPClk2UU11/DZWZn+WbwhlFbNnkGcj4psZ4vJtgGU0R5W9wNLWpTy+hPEOb0vUZe+DUZoNqd1QyUnc6kajQNnN593Vjtz23n+ub1svAb0z4lvs+/Dfeba+UnyldQsx0qCoV5EAAA=="
+    },
+    "nature-home-study": {
+      "width": 1022,
+      "height": 1363,
+      "widths": [
+        640,
+        960,
+        1022
+      ],
+      "blur": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAACQBACdASoQABUAPu1iqU2ppaOiMAgBMB2JZgCdMoMYJn/AVBJGSywJWKTbcgAA/nithiNcnsiMfgLnvRiKCgyoXSGuqvulYy8zoYZuhFurMgmXMOFCOY9+rw3zZi4EjRj3TehlzH8PDu5fbPuoko6fCe+MZ7zq0WIbr6jSUFos4iOrXnGlXsAvEnQ9vDVou2Y7qLCGAAA="
+    },
+    "earth-house-garden": {
+      "width": 1024,
+      "height": 1024,
+      "widths": [
+        640,
+        960,
+        1024
+      ],
+      "blur": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAABQAgCdASoQABAAA4BaJZACdAYwn2Ul+AyHUwAA9p1fyBywjbAtbfLU140UG9hEV+CABol/jcMltLJppgGRtSTclUc22P7ZEd23f9qHHNVv9aqxO4KyEXcJcVwFVKQZDXD5rFWtPxWzXaoVTQAC8wAA"
+    },
+    "community-centre-courtyard": {
+      "width": 2560,
+      "height": 3200,
+      "widths": [
+        640,
+        960,
+        1440,
+        2000,
+        2400
+      ],
+      "blur": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JYgCdMoADTR5JgDHD9BeMh3wgAP6/nIBtT9AlyqGGfwbGTqxGWnSDppstdcNicU30urgPrtBy9gpWOB89QRE7bLrX+6xDRFURtOxsqIjjW3vm9ERiEoyDOvCKzoTw+FhZAL0AAAA="
+    }
+  }
+}
