@@ -1,8 +1,10 @@
 import { ButtonLink } from "@/components/button-link";
 import { ChapterMarker } from "@/components/chapter-marker";
+import { Curtain } from "@/components/curtain";
 import { Photo } from "@/components/photo";
 import { PlaceholderNote } from "@/components/placeholder-note";
 import { Reveal } from "@/components/reveal";
+import { RiseWords } from "@/components/rise-words";
 import { mailto, subjects, venture } from "@/lib/content";
 
 export function Give() {
@@ -13,18 +15,20 @@ export function Give() {
       <Reveal>
         <ChapterMarker pillar="give" />
         <h2 className="center-mobile display mt-6 max-w-[20ch] text-[2.8rem] md:text-[4.4rem]">
-          Education and faith for the next generation
+          <RiseWords text="Education and faith for the next generation" />
         </h2>
       </Reveal>
 
       <div className="mt-16 grid grid-cols-1 gap-12 md:mt-24 md:grid-cols-12 md:gap-10">
         <Reveal className="md:col-span-7">
           <div className="relative aspect-[6/5] overflow-hidden bg-sand">
-            <Photo
-              name="crystal-white-shirt"
-              alt="Crystal Kizor in a white shirt at her studio desk, chin resting on her hand"
-              sizes="(min-width: 768px) 55vw, 100vw"
-            />
+            <Curtain>
+              <Photo
+                name="crystal-white-shirt"
+                alt="Crystal Kizor in a white shirt at her studio desk, chin resting on her hand"
+                sizes="(min-width: 768px) 55vw, 100vw"
+              />
+            </Curtain>
           </div>
         </Reveal>
 

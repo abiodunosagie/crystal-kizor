@@ -1,5 +1,6 @@
 import { EnquiryForm } from "@/components/enquiry-form";
 import { Reveal } from "@/components/reveal";
+import { RiseWords } from "@/components/rise-words";
 import { TrackedLink } from "@/components/tracked-link";
 import { doors } from "@/lib/content";
 
@@ -8,7 +9,7 @@ export function NextSteps() {
     <section id="next" className="bg-ink text-cream">
       <div className="gutter mx-auto max-w-[1440px] py-28 max-md:text-center md:py-40">
         <Reveal>
-          <h2 className="center-mobile display max-w-[16ch] text-[2.8rem] md:text-[4.4rem]">Find the right door.</h2>
+          <h2 className="center-mobile display max-w-[16ch] text-[2.8rem] md:text-[4.4rem]"><RiseWords text="Find the right door." /></h2>
         </Reveal>
 
         <ul className="mt-16 border-t border-cream/30">

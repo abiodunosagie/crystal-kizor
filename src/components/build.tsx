@@ -3,11 +3,13 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { ButtonLink } from "@/components/button-link";
+import { Curtain } from "@/components/curtain";
 import { Photo } from "@/components/photo";
 import { PlaceholderNote } from "@/components/placeholder-note";
 import { ChapterMarker } from "@/components/chapter-marker";
 import { FeaturedProject } from "@/components/featured-project";
 import { Reveal } from "@/components/reveal";
+import { RiseWords } from "@/components/rise-words";
 import { contact, studioFacts, studioFrames, STUDIO_SOURCE, venture, type Frame } from "@/lib/content";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
 
@@ -142,7 +144,7 @@ export function Build() {
         <div className="mt-6 grid grid-cols-1 gap-10 md:grid-cols-12">
           <Reveal className="md:col-span-7">
             <h2 className="display text-[2.8rem] md:text-[4.4rem]">
-              Studio COKA. Built for this climate, designed for people.
+              <RiseWords text="Studio COKA. Built for this climate, designed for people." />
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="md:col-span-4 md:col-start-9 md:pt-3">
@@ -225,12 +227,14 @@ export function Build() {
           </Reveal>
           <Reveal delay={0.1} className="md:col-span-6 md:col-start-7">
             <div className="relative aspect-[6/5] overflow-hidden bg-night">
-              <Photo
-                name="nature-home-lounge"
-                alt="Two curved lounge chairs and a side table in front of a timber slat wall"
-                sizes="(min-width: 768px) 45vw, 100vw"
-                className="object-[50%_70%]"
-              />
+              <Curtain>
+                <Photo
+                  name="nature-home-lounge"
+                  alt="Two curved lounge chairs and a side table in front of a timber slat wall"
+                  sizes="(min-width: 768px) 45vw, 100vw"
+                  className="object-[50%_70%]"
+                />
+              </Curtain>
             </div>
             <p className="mt-3 text-caption text-cream/70">
               Furniture in a Studio COKA interior, shown until ELEvated photography is available.

@@ -68,7 +68,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: personJsonLd }} />
         <noscript>
-          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important;clip-path:none!important}`}</style>
         </noscript>
         <SmoothScroll>{children}</SmoothScroll>
         {gaId ? (

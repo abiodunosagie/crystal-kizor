@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { Curtain } from "@/components/curtain";
 import { Photo } from "@/components/photo";
 import { Reveal } from "@/components/reveal";
+import { RiseWords } from "@/components/rise-words";
 import { person, pillars, ventures, type Pillar } from "@/lib/content";
 
 const order: Pillar[] = ["build", "teach", "give"];
@@ -11,17 +13,19 @@ export function About() {
       <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
         <Reveal className="md:sticky md:top-28 md:col-span-5 md:self-start">
           <div className="relative aspect-[6/5] overflow-hidden bg-sand md:aspect-[4/5]">
-            <Photo
-              name="crystal-arms-crossed"
-              alt="Crystal Kizor with arms folded in front of a wall of site plans, renders and material swatches"
-              sizes="(min-width: 768px) 38vw, 100vw"
-            />
+            <Curtain>
+              <Photo
+                name="crystal-arms-crossed"
+                alt="Crystal Kizor with arms folded in front of a wall of site plans, renders and material swatches"
+                sizes="(min-width: 768px) 38vw, 100vw"
+              />
+            </Curtain>
           </div>
         </Reveal>
 
         <div className="max-md:text-center md:col-span-6 md:col-start-7">
           <Reveal>
-            <h2 className="display text-[2.6rem] md:text-[3.6rem]">Who she is</h2>
+            <h2 className="display text-[2.6rem] md:text-[3.6rem]"><RiseWords text="Who she is" /></h2>
           </Reveal>
           <Reveal delay={0.1}>
             <blockquote className="display mt-8 text-[1.7rem] md:border-l md:border-earth md:pl-6 italic leading-tight text-earth md:text-[2rem]">
@@ -58,7 +62,7 @@ export function About() {
       <div className="mt-28 md:mt-40">
         <div className="max-md:text-center">
         <Reveal>
-          <h2 className="display text-[2.6rem] md:text-[3.6rem]">What she is building</h2>
+          <h2 className="display text-[2.6rem] md:text-[3.6rem]"><RiseWords text="What she is building" /></h2>
           <p className="center-mobile mt-4 max-w-[52ch] text-muted">
             Seven brands and initiatives, grouped by what each one does.
           </p>

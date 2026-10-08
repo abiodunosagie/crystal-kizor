@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ButtonLink } from "@/components/button-link";
 import { Photo } from "@/components/photo";
 import { Reveal } from "@/components/reveal";
+import { RiseWords } from "@/components/rise-words";
 import { featured } from "@/lib/content";
 
 // Drag (or use the arrow keys) to compare the building before and after.
@@ -59,7 +60,9 @@ export function FeaturedProject() {
         <Reveal className="grid grid-cols-1 gap-6 max-md:text-center md:grid-cols-12 md:gap-10">
           <div className="md:col-span-7">
             <p className="eyebrow text-earth-soft">Featured project</p>
-            <h3 className="display mt-4 text-[2.6rem] md:text-[3.8rem]">{featured.title}</h3>
+            <h3 className="display mt-4 text-[2.6rem] md:text-[3.8rem]">
+              <RiseWords text={featured.title} />
+            </h3>
           </div>
           <p className="center-mobile max-w-[44ch] text-cream/80 md:col-span-4 md:col-start-9 md:self-end">
             {featured.name}, {featured.place}. {featured.story}
