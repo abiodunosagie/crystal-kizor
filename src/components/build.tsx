@@ -194,7 +194,7 @@ export function Build() {
             <p className="eyebrow text-earth-soft">Also under {pillars.build.title}</p>
             <h3 className="display mt-4 text-[2.6rem] md:text-[3.4rem]">{elevated.name}</h3>
             <p className="mt-4 max-w-[46ch] text-cream/80">
-              Furniture and product design at the scale of the hand. {elevated.line}
+              Design at the scale of the hand. {elevated.line}
             </p>
             <PlaceholderNote tone="dark">collection link and product photography to follow.</PlaceholderNote>
           </Reveal>

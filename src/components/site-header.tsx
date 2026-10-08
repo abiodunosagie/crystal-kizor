@@ -19,10 +19,33 @@ export function SiteHeader() {
   const { scrollY } = useScroll();
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
 
   useMotionValueEvent(scrollY, "change", (y) => setSolid(y > 24));
+
+  // Highlights the section crossing the middle of the viewport.
+  useEffect(() => {
+    const sections = [...links.map((l) => l.href), "#next"]
+      .map((href) => document.querySelector<HTMLElement>(href))
+      .filter(Boolean) as HTMLElement[];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // "#next" is watched only so the highlight clears after the last chapter.
+        for (const e of entries) if (e.isIntersecting) setActive(e.target.id === "next" ? null : `#${e.target.id}`);
+      },
+      { rootMargin: "-45% 0px -54% 0px" },
+    );
+    sections.forEach((s) => observer.observe(s));
+    // Above the first section nothing is active.
+    const clear = () => window.scrollY < window.innerHeight * 0.5 && setActive(null);
+    window.addEventListener("scroll", clear, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", clear);
+    };
+  }, []);
 
   // Lenis is paused while the menu is open, so a menu link closes the menu,
   // resumes Lenis and then scrolls; otherwise the jump would be swallowed.
@@ -80,7 +103,14 @@ export function SiteHeader() {
 
         <nav aria-label="Main" className="hidden items-center gap-9 md:flex">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-[0.95rem] font-medium text-muted transition-colors hover:text-ink">
+            <a
+              key={l.href}
+              href={l.href}
+              aria-current={active === l.href ? "location" : undefined}
+              className={`border-b py-1 text-[0.95rem] font-medium transition-colors hover:text-ink ${
+                active === l.href ? "border-ink text-ink" : "border-transparent text-muted"
+              }`}
+            >
               {l.label}
             </a>
           ))}

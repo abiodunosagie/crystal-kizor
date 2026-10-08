@@ -9,8 +9,8 @@ export function About() {
   return (
     <section id="about" className="gutter mx-auto max-w-[1440px] py-28 md:py-40">
       <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
-        <Reveal className="md:col-span-5">
-          <div className="relative aspect-[6/5] overflow-hidden bg-sand">
+        <Reveal className="md:sticky md:top-28 md:col-span-5 md:self-start">
+          <div className="relative aspect-[6/5] overflow-hidden bg-sand md:aspect-[4/5]">
             <Photo
               name="crystal-arms-crossed"
               alt="Crystal Kizor with arms folded in front of a wall of site plans, renders and material swatches"

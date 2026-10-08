@@ -17,14 +17,16 @@ export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduce = usePrefersReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const portraitY = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "12%"]);
+  // The image is 12% taller than its frame (inset -6%), so it may drift at most
+  // 5% of its own height either way without exposing the frame behind it.
+  const portraitY = useTransform(scrollYProgress, [0, 1], reduce ? ["0%", "0%"] : ["-5%", "5%"]);
 
   return (
     <section ref={ref} id="top" className="gutter mx-auto max-w-[1440px] pt-24 md:pt-32">
       <div className="grid grid-cols-1 gap-y-10 md:grid-cols-12 md:gap-x-10">
         <div className="md:col-span-7 md:pt-10">
           <motion.p
-            className="eyebrow text-earth"
+            className="eyebrow text-balance text-earth"
             initial={{ y: 12 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.7, ease }}
@@ -95,13 +97,13 @@ export function Hero() {
                 href={d.href}
                 event={d.event}
                 params={{ location: "hero", door: d.id, ...(d.lead ? { lead_type: d.lead } : {}) }}
-                className="group flex h-full items-baseline justify-between gap-4 py-5 transition-colors hover:text-earth md:flex-col md:items-start md:py-7"
+                className="group flex h-full flex-col items-start gap-2 py-5 transition-colors hover:text-earth md:gap-0 md:py-7"
               >
                 <span className="flex items-baseline gap-3">
                   <span className="text-caption font-semibold text-earth">{String.fromCharCode(65 + i)}</span>
                   <span className="display text-[1.65rem] md:text-[1.9rem]">{d.want}</span>
                 </span>
-                <span className="text-[0.9rem] text-muted transition-transform duration-300 group-hover:translate-x-1 md:mt-6">
+                <span className="pl-6 text-[0.9rem] text-muted transition-transform duration-300 group-hover:translate-x-1 md:mt-6 md:pl-0">
                   {d.action} <span aria-hidden>→</span>
                 </span>
               </TrackedLink>
