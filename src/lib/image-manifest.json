@@ -116,6 +116,28 @@
         2400
       ],
       "blur": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABQBACdASoQABQAPu1iqU2ppaOiMAgBMB2JYgCdMoADTR5JgDHD9BeMh3wgAP6/nIBtT9AlyqGGfwbGTqxGWnSDppstdcNicU30urgPrtBy9gpWOB89QRE7bLrX+6xDRFURtOxsqIjjW3vm9ERiEoyDOvCKzoTw+FhZAL0AAAA="
+    },
+    "tesh-before": {
+      "width": 1920,
+      "height": 1080,
+      "widths": [
+        640,
+        960,
+        1440,
+        1920
+      ],
+      "blur": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoQAAkAA4BaJaACdH8AgnC9xpIAAPwi5Ugf39l0JxJRgd3NYD48i0Y7RgYh7fv5ZjR68nJGJP2072T9s8YpU03hA49FNhYwyrRQAAAA"
+    },
+    "tesh-after": {
+      "width": 1778,
+      "height": 1080,
+      "widths": [
+        640,
+        960,
+        1440,
+        1778
+      ],
+      "blur": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQAgCdASoQAAoAA4BaJYgCsAEPR9GOyQAAAP7z+d3QZLTYr5+w5iFKNkk3Etnndgb7Aj8/m28ucKraBSo5HuY6NaujYaJm0CUUQGMeZzaWngEEHrjiGeRGA3c9wuH4U4wAAA=="
     }
   }
 }

@@ -35,6 +35,11 @@ const PHOTOS = {
   "earth-house-garden": "Other assets/Nature Home 2/1.png",
 
   "community-centre-courtyard": "Other assets/Community Centre Project/IMG_2105 2.JPG",
+
+  // Published by Studio COKA on studiocoka.com/projects/nigeria-first-off-grid-hospital
+  // and credited on the page.
+  "tesh-before": "studio-coka-public/tesh-before.jpeg",
+  "tesh-after": "studio-coka-public/tesh-1.jpg",
 };
 
 // Ink bounding boxes of each lockup on "Crystal Kizor Logo Collection.png",

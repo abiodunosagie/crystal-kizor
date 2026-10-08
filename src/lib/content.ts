@@ -146,8 +146,23 @@ export function venture(id: string): Venture {
 export const studioFacts = [
   { prefix: "Up to", value: "70%", label: "less energy demand in the studio's climate-responsive designs" },
   { prefix: "Up to", value: "90%", label: "less cooling required" },
-  { value: "95%", label: "less diesel at Nigeria's first fully off-grid hospital, designed by Crystal" },
 ];
+
+// studiocoka.com home page and /projects/nigeria-first-off-grid-hospital.
+export const featured = {
+  name: "TESH Nsukka",
+  title: "Nigeria’s first fully off-grid hospital",
+  place: "Nsukka, Enugu",
+  href: "https://studiocoka.com/projects/nigeria-first-off-grid-hospital",
+  story:
+    "A dilapidated mixed-use building, reimagined as the first eye hospital in Nsukka. Before it opened, residents travelled as far as Kano for basic eye care. It runs on its own solar power, and a raised central atrium lets hot air escape so the waiting area stays cool without air-conditioning.",
+  quote: "This was not designed to feel like a hospital. It was designed to feel like care.",
+  figures: [
+    { value: "₦8M", label: "saved every year in energy costs" },
+    { value: "95%", label: "less diesel" },
+    { value: "400%", label: "more patient visits" },
+  ],
+};
 
 export type Frame = {
   image: string;

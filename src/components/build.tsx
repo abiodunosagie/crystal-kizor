@@ -6,6 +6,7 @@ import { ButtonLink } from "@/components/button-link";
 import { Photo } from "@/components/photo";
 import { PlaceholderNote } from "@/components/placeholder-note";
 import { ChapterMarker } from "@/components/chapter-marker";
+import { FeaturedProject } from "@/components/featured-project";
 import { Reveal } from "@/components/reveal";
 import { contact, studioFacts, studioFrames, STUDIO_SOURCE, venture, type Frame } from "@/lib/content";
 import { usePrefersReducedMotion } from "@/lib/use-prefers-reduced-motion";
@@ -154,7 +155,7 @@ export function Build() {
           </Reveal>
         </div>
 
-        <dl className="mt-20 grid grid-cols-1 border-t border-cream/20 sm:grid-cols-3">
+        <dl className="mt-20 grid grid-cols-1 border-t border-cream/20 sm:grid-cols-2 md:w-2/3">
           {studioFacts.map((f) => (
             <div
               key={f.value}
@@ -191,6 +192,8 @@ export function Build() {
       <div className="mt-10 md:mt-0">
         <Sequence />
       </div>
+
+      <FeaturedProject />
 
       <div id="elevated" className="gutter mx-auto max-w-[1440px] pb-28 pt-24 md:pb-40 md:pt-32">
         <div className="grid grid-cols-1 gap-10 border-t border-cream/20 pt-14 max-md:text-center md:grid-cols-12">
