@@ -21,10 +21,7 @@ export function About() {
 
         <div className="max-md:text-center md:col-span-6 md:col-start-7">
           <Reveal>
-            <p className="eyebrow text-earth">Who she is</p>
-            <h2 className="display mt-5 text-[2.6rem] md:text-[3.6rem]">
-              One question runs through all of her work.
-            </h2>
+            <h2 className="display text-[2.6rem] md:text-[3.6rem]">Who she is</h2>
           </Reveal>
           <Reveal delay={0.1}>
             <blockquote className="display mt-8 text-[1.7rem] md:border-l md:border-earth md:pl-6 italic leading-tight text-earth md:text-[2rem]">
@@ -37,8 +34,7 @@ export function About() {
               Crystal answers it first as an architect, with buildings that work with heat, light and air instead of
               fighting them. Then she keeps going: into the furniture people live with, the education architects
               receive, the stages where the built environment is debated, and the young people who will inherit it.
-              Different brands, one conviction. Good design should make everyday life better, and it should be built
-              for the place it stands in.
+              Each of her brands carries the same idea into a different field.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
@@ -62,19 +58,19 @@ export function About() {
       <div className="mt-28 md:mt-40">
         <div className="max-md:text-center">
         <Reveal>
-          <p className="eyebrow text-earth">What she is building</p>
-          <h2 className="display mx-auto mt-5 max-w-[20ch] text-[2.6rem] md:mx-0 md:text-[3.6rem]">
-            Three ways of building, one body of work.
-          </h2>
+          <h2 className="display text-[2.6rem] md:text-[3.6rem]">What she is building</h2>
+          <p className="mx-auto mt-4 max-w-[52ch] text-muted md:mx-0">
+            Seven brands and initiatives, grouped by what each one does.
+          </p>
         </Reveal>
         </div>
 
         <ol className="mt-14 border-t border-ink">
-          {order.map((key, i) => {
+          {order.map((key) => {
             const p = pillars[key];
             const items = ventures.filter((v) => v.pillar === key);
             return (
-              <Reveal as="li" key={key} delay={i * 0.06} className="border-b border-line">
+              <li key={key} className="border-b border-line">
                 <div className="grid grid-cols-1 gap-6 py-10 max-md:text-center md:grid-cols-12 md:gap-10 md:py-12">
                   <div className="md:col-span-4">
                     <span className="text-caption font-semibold text-earth">{p.index}</span>
@@ -95,12 +91,12 @@ export function About() {
                         ) : (
                           <span className="font-semibold">{v.name}</span>
                         )}
-                        <span className="text-muted">{v.line}</span>
+                        <span className="text-muted">{v.short}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </Reveal>
+              </li>
             );
           })}
         </ol>

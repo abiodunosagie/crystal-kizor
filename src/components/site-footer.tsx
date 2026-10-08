@@ -16,15 +16,14 @@ export function SiteFooter() {
           <ul className="mt-4 flex flex-col gap-2">
             {ventures.map((v) => (
               <li key={v.id}>
-                {v.href ? (
-                  <TrackedLink href={v.href} event="outbound_click" params={{ location: "footer", target: v.id }} className="hover:text-earth">
-                    {v.name}
-                  </TrackedLink>
-                ) : (
-                  <span className="text-muted">
-                    {v.name} <span className="text-[0.8rem]">(link to follow)</span>
-                  </span>
-                )}
+                <TrackedLink
+                  href={v.href ?? v.anchor}
+                  event={v.href?.startsWith("http") ? "outbound_click" : "route_select"}
+                  params={{ location: "footer", target: v.id }}
+                  className="hover:text-earth"
+                >
+                  {v.name}
+                </TrackedLink>
               </li>
             ))}
           </ul>

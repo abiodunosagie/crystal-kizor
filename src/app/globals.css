@@ -59,11 +59,10 @@
     letter-spacing: -0.01em;
     line-height: 0.98;
   }
+  /* Chapter markers and list labels: plain sentence case, no tracking. */
   .eyebrow {
-    font-size: 0.8125rem;
+    font-size: 0.9375rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
   }
   .gutter {
     padding-inline: var(--gutter);

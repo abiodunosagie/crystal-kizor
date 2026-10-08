@@ -22,7 +22,6 @@ const CREAM = { r: 247, g: 243, b: 237 };
 const PHOTOS = {
   "crystal-standing": "Crystal_s pictures/Architectural Studio Portrait.png",
   "crystal-arms-crossed": "Crystal_s pictures/Confident Designer in Studio Workspace.png",
-  "crystal-desk": "Crystal_s pictures/Poised in a Warm Design Studio.png",
   "crystal-white-shirt": "Crystal_s pictures/Architectural Designer in Her Studio.png",
   "crystal-microphone": "Crystal_s pictures/Cozy Architecture Podcast Workspace.png",
 

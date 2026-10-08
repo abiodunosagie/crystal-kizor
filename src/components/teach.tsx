@@ -15,7 +15,7 @@ export function Teach() {
             {pillars.teach.index} · {pillars.teach.title}
           </p>
           <h2 className="display mx-auto mt-6 max-w-[22ch] md:mx-0 text-[2.8rem] md:text-[4.4rem]">
-            What the studio learns, she gives back to the profession.
+            Teaching, speaking and writing for the profession
           </h2>
         </Reveal>
 
@@ -95,7 +95,7 @@ export function Teach() {
                     className="group flex items-baseline justify-between gap-6 py-5 text-left"
                   >
                     <span>
-                      <span className="block text-caption font-semibold uppercase tracking-[0.05em] text-earth">{j.topic}</span>
+                      <span className="block text-caption font-semibold text-earth">{j.topic}</span>
                       <span className="mt-1 block text-[1.05rem] font-medium group-hover:underline">{j.title}</span>
                     </span>
                     <span aria-hidden className="text-muted transition-transform group-hover:translate-x-1">↗</span>

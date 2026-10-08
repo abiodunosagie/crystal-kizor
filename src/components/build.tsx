@@ -29,7 +29,7 @@ function useTravel(stripRef: React.RefObject<HTMLDivElement | null>) {
   return travel;
 }
 
-function FrameCard({ frame, index }: { frame: Frame; index: number }) {
+function FrameCard({ frame }: { frame: Frame }) {
   return (
     <figure className="w-[78vw] shrink-0 snap-start sm:w-[46vw] md:w-[30vw] lg:w-[26vw]">
       <div className="relative aspect-[4/5] overflow-hidden bg-night">
@@ -46,12 +46,9 @@ function FrameCard({ frame, index }: { frame: Frame; index: number }) {
           {frame.status}
         </span>
       </div>
-      <figcaption className="mt-4 flex gap-3 text-[0.95rem]">
-        <span className="font-semibold text-earth-soft">{String(index + 1).padStart(2, "0")}</span>
-        <span>
-          <span className="block font-semibold text-cream">{frame.title}</span>
-          <span className="text-cream/75">{frame.note}</span>
-        </span>
+      <figcaption className="mt-4 text-[0.95rem]">
+        <span className="block font-semibold text-cream">{frame.title}</span>
+        <span className="text-cream/75">{frame.note}</span>
       </figcaption>
     </figure>
   );
@@ -60,8 +57,8 @@ function FrameCard({ frame, index }: { frame: Frame; index: number }) {
 function Frames() {
   return (
     <>
-      {studioFrames.map((f, i) => (
-        <FrameCard key={f.image} frame={f} index={i} />
+      {studioFrames.map((f) => (
+        <FrameCard key={f.image} frame={f} />
       ))}
     </>
   );
@@ -159,15 +156,17 @@ export function Build() {
         </div>
 
         <dl className="mt-20 grid grid-cols-1 border-t border-cream/20 sm:grid-cols-3">
-          {studioFacts.map((f, i) => (
-            <Reveal
+          {studioFacts.map((f) => (
+            <div
               key={f.value}
-              delay={i * 0.08}
               className="flex flex-col-reverse border-b border-cream/20 py-8 sm:border-b-0 sm:text-left sm:border-r sm:px-8 sm:first:pl-0 sm:last:border-r-0"
             >
               <dt className="mx-auto mt-3 max-w-[30ch] text-[0.95rem] text-cream/75 sm:mx-0">{f.label}</dt>
-              <dd className="display text-[4rem] leading-none text-earth-soft md:text-[5.2rem]">{f.value}</dd>
-            </Reveal>
+              <dd className="display text-[4rem] leading-none text-earth-soft md:text-[5.2rem]">
+                {f.prefix ? <span className="mr-2 align-baseline font-sans text-[1rem] font-semibold">{f.prefix}</span> : null}
+                {f.value}
+              </dd>
+            </div>
           ))}
         </dl>
         <p className="mt-4 text-caption text-cream/70">
@@ -179,8 +178,7 @@ export function Build() {
         </p>
 
         <Reveal className="mt-24 md:mt-28">
-          <p className="eyebrow text-earth-soft">Inside the work</p>
-          <p className="mx-auto mt-3 max-w-[48ch] text-cream/80 md:mx-0">
+          <p className="mx-auto max-w-[48ch] text-cream/80 md:mx-0">
             Nature Home, photographed on site, followed by two projects in design. Scroll or swipe to walk through.
           </p>
         </Reveal>
@@ -193,8 +191,7 @@ export function Build() {
       <div id="elevated" className="gutter mx-auto max-w-[1440px] pb-28 pt-24 md:pb-40 md:pt-32">
         <div className="grid grid-cols-1 gap-10 border-t border-cream/20 pt-14 max-md:text-center md:grid-cols-12">
           <Reveal className="md:col-span-5">
-            <p className="eyebrow text-earth-soft">Also under {pillars.build.title}</p>
-            <h3 className="display mt-4 text-[2.6rem] md:text-[3.4rem]">{elevated.name}</h3>
+            <h3 className="display text-[2.6rem] md:text-[3.4rem]">{elevated.name}</h3>
             <p className="mx-auto mt-4 max-w-[46ch] text-cream/80 md:mx-0">
               Design at the scale of the hand. {elevated.line}
             </p>
@@ -203,13 +200,14 @@ export function Build() {
           <Reveal delay={0.1} className="md:col-span-6 md:col-start-7">
             <div className="relative aspect-[6/5] overflow-hidden bg-night">
               <Photo
-                name="crystal-desk"
-                alt="Crystal Kizor at her desk surrounded by stone, timber and terrazzo material samples"
+                name="nature-home-lounge"
+                alt="Two curved lounge chairs and a side table in front of a timber slat wall"
                 sizes="(min-width: 768px) 45vw, 100vw"
+                className="object-[50%_70%]"
               />
             </div>
             <p className="mt-3 text-caption text-cream/70">
-              Material studies in the studio, shown until ELEvated photography is available.
+              Furniture in a Studio COKA interior, shown until ELEvated photography is available.
             </p>
           </Reveal>
         </div>

@@ -14,7 +14,7 @@ export function Give() {
           {pillars.give.index} · {pillars.give.title}
         </p>
         <h2 className="display mx-auto mt-6 max-w-[20ch] md:mx-0 text-[2.8rem] md:text-[4.4rem]">
-          The longest building project is a generation.
+          Education and faith for the next generation
         </h2>
       </Reveal>
 
@@ -45,7 +45,7 @@ export function Give() {
       </div>
 
       <Reveal className="mt-24 md:mt-32">
-        <div className="grid grid-cols-1 gap-8 border-y border-ink py-14 md:grid-cols-12 md:gap-10 md:py-20">
+        <div id="alive-and-free" className="grid grid-cols-1 gap-8 border-y border-ink py-14 md:grid-cols-12 md:gap-10 md:py-20">
           <div className="md:col-span-5">
             <h3 className="display text-[2.4rem] md:text-[3rem]">{aliveAndFree.name}</h3>
             <p className="mt-2 font-semibold text-earth">A Christian youth movement</p>

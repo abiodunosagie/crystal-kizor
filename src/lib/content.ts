@@ -61,9 +61,13 @@ export type Venture = {
   id: string;
   name: string;
   pillar: Pillar;
+  // Index wording; the full line is used once, in the brand's own chapter.
+  short: string;
   line: string;
   // Real destination, or null when the brand has no public page yet.
   href: string | null;
+  // Where the brand is described on this page.
+  anchor: string;
 };
 
 // Lines follow the brand context in the brief.
@@ -72,50 +76,64 @@ export const ventures: Venture[] = [
     id: "studio-coka",
     name: "Studio COKA",
     pillar: "build",
+    short: "Architecture, interiors and construction",
     line: "Architecture, interior design and construction studio focused on thoughtful, climate-responsive design.",
     href: contact.studioSite,
+    anchor: "#build",
   },
   {
     id: "elevated",
     name: "ELEvated",
     pillar: "build",
+    short: "Furniture and products",
     line: "Contemporary furniture and product design rooted in African context, materials and ideas.",
     href: null,
+    anchor: "#elevated",
   },
   {
     id: "tea",
     name: "The Effective Architect",
     pillar: "teach",
+    short: "Education and media for architects",
     line: "An education and media platform helping architects and built-environment professionals learn, grow and build better careers.",
     href: null,
+    anchor: "#teach",
   },
   {
     id: "speaking",
     name: "Speaking",
     pillar: "teach",
+    short: "Talks and conversations",
     line: "Talks and conversations on architecture, climate-responsive design, African cities, entrepreneurship and the built environment.",
     href: "#speaking",
+    anchor: "#speaking",
   },
   {
     id: "writing",
     name: "Research & Writing",
     pillar: "teach",
+    short: "Ideas under her own name",
     line: "Architecture, research, writing, media and ideas that sit directly under her own name.",
     href: "#writing",
+    anchor: "#writing",
   },
   {
     id: "ako",
     name: "AKO Alliance",
     pillar: "give",
+    short: "Education access for young people",
     line: "Expanding access to education and creating opportunities for children and young people.",
     href: null,
+    anchor: "#give",
   },
   {
     id: "alive-and-free",
     name: "Alive and Free",
     pillar: "give",
+    short: "A Christian youth movement",
     line: "A Christian youth movement helping young people walk in truth, healing, freedom, identity, purpose and life in Christ.",
     href: null,
+    anchor: "#alive-and-free",
   },
 ];
 
@@ -127,9 +145,9 @@ export function venture(id: string): Venture {
 
 // Published on studiocoka.com (home and studio pages).
 export const studioFacts = [
-  { value: "70%", label: "Up to 70% less energy demand in the studio's climate-responsive designs" },
-  { value: "90%", label: "Up to 90% less cooling required" },
-  { value: "95%", label: "Less diesel at Nigeria's first fully off-grid hospital, designed by Crystal" },
+  { prefix: "Up to", value: "70%", label: "less energy demand in the studio's climate-responsive designs" },
+  { prefix: "Up to", value: "90%", label: "less cooling required" },
+  { prefix: "", value: "95%", label: "less diesel at Nigeria's first fully off-grid hospital, designed by Crystal" },
 ];
 
 export type Frame = {
@@ -146,7 +164,6 @@ export const studioFrames: Frame[] = [
   { image: "nature-home-cantilever", title: "Nature Home", note: "Deep cantilevers shade the terrace and the glazing", status: "Completed" },
   { image: "nature-home-garden", title: "Nature Home", note: "Grass-jointed paving and a young tree in the back garden", status: "Completed" },
   { image: "nature-home-living", title: "Nature Home", note: "Tall windows, light curtains, a calm family room", status: "Completed" },
-  { image: "nature-home-lounge", title: "Nature Home", note: "A timber slat wall frames a quiet corner", status: "Completed" },
   { image: "nature-home-study", title: "Nature Home", note: "A study wrapped in warm timber", status: "Completed" },
   { image: "earth-house-garden", title: "Nature Home 2, Enugu", note: "Earth walls, deep eaves and a garden threshold", status: "Visualisation" },
   { image: "community-centre-courtyard", title: "Community Centre", note: "A courtyard roof opened around a single great tree", status: "Concept" },

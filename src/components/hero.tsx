@@ -25,16 +25,8 @@ export function Hero() {
     <section ref={ref} id="top" className="gutter mx-auto max-w-[1440px] pt-24 md:pt-32">
       <div className="grid grid-cols-1 gap-y-10 md:grid-cols-12 md:gap-x-10">
         <div className="max-md:text-center md:col-span-7 md:pt-10">
-          <motion.p
-            className="eyebrow text-balance text-earth"
-            initial={{ y: 12 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.7, ease }}
-          >
-            Architect · Designer · Founder of Studio COKA
-          </motion.p>
 
-          <h1 className="mt-6">
+          <h1>
             <span className="sr-only">Crystal Kizor</span>
             <motion.span
               aria-hidden
@@ -91,7 +83,7 @@ export function Hero() {
         <ul className="mt-4 grid grid-cols-1 border-t border-ink md:grid-cols-2 md:gap-x-10 lg:grid-cols-4 lg:gap-x-0">
           {doors
             .filter((d) => d.inHero)
-            .map((d, i) => (
+            .map((d) => (
             <li key={d.id} className="border-b border-line lg:border-b-0 lg:border-r lg:px-6 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
               <TrackedLink
                 href={d.href}
@@ -99,10 +91,7 @@ export function Hero() {
                 params={{ location: "hero", door: d.id, ...(d.lead ? { lead_type: d.lead } : {}) }}
                 className="group flex h-full flex-col items-center gap-2 py-5 text-center md:items-start md:text-left transition-colors hover:text-earth md:gap-0 md:py-7"
               >
-                <span className="flex items-baseline gap-3">
-                  <span className="text-caption font-semibold text-earth">{String.fromCharCode(65 + i)}</span>
-                  <span className="display text-[1.65rem] md:text-[1.9rem]">{d.want}</span>
-                </span>
+                <span className="display text-[1.65rem] md:text-[1.9rem]">{d.want}</span>
                 <span className="text-[0.9rem] text-muted transition-transform duration-300 group-hover:translate-x-1 md:mt-6">
                   {d.action} <span aria-hidden>→</span>
                 </span>
