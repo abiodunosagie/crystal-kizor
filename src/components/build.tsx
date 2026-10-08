@@ -117,7 +117,7 @@ export function Build() {
   const elevated = venture("elevated");
   return (
     <section id="build" className="bg-night text-cream">
-      <div className="gutter mx-auto max-w-[1440px] pt-28 md:pt-40">
+      <div className="gutter mx-auto max-w-[1440px] pt-28 max-md:text-center md:pt-40">
         <Reveal>
           <p className="eyebrow text-earth-soft">
             {pillars.build.index} · {pillars.build.title}
@@ -135,12 +135,13 @@ export function Build() {
               from first sketch to final handover. Every project is shaped by the climate, the site and the people who
               will use the space.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row">
               <ButtonLink
                 href={contact.studioHire}
                 event="generate_lead"
                 params={{ location: "build", lead_type: "studio_project" }}
                 variant="cream"
+                className="md:w-full lg:w-auto"
               >
                 Start a project
               </ButtonLink>
@@ -149,6 +150,7 @@ export function Build() {
                 event="outbound_click"
                 params={{ location: "build", target: "studio_site" }}
                 variant="outline-light"
+                className="md:w-full lg:w-auto"
               >
                 Visit studiocoka.com
               </ButtonLink>
@@ -161,9 +163,9 @@ export function Build() {
             <Reveal
               key={f.value}
               delay={i * 0.08}
-              className="flex flex-col-reverse border-b border-cream/20 py-8 sm:border-b-0 sm:border-r sm:px-8 sm:first:pl-0 sm:last:border-r-0"
+              className="flex flex-col-reverse border-b border-cream/20 py-8 sm:border-b-0 sm:text-left sm:border-r sm:px-8 sm:first:pl-0 sm:last:border-r-0"
             >
-              <dt className="mt-3 max-w-[30ch] text-[0.95rem] text-cream/75">{f.label}</dt>
+              <dt className="mx-auto mt-3 max-w-[30ch] text-[0.95rem] text-cream/75 sm:mx-0">{f.label}</dt>
               <dd className="display text-[4rem] leading-none text-earth-soft md:text-[5.2rem]">{f.value}</dd>
             </Reveal>
           ))}
@@ -178,7 +180,7 @@ export function Build() {
 
         <Reveal className="mt-24 md:mt-28">
           <p className="eyebrow text-earth-soft">Inside the work</p>
-          <p className="mt-3 max-w-[48ch] text-cream/80">
+          <p className="mx-auto mt-3 max-w-[48ch] text-cream/80 md:mx-0">
             Nature Home, photographed on site, followed by two projects in design. Scroll or swipe to walk through.
           </p>
         </Reveal>
@@ -189,11 +191,11 @@ export function Build() {
       </div>
 
       <div id="elevated" className="gutter mx-auto max-w-[1440px] pb-28 pt-24 md:pb-40 md:pt-32">
-        <div className="grid grid-cols-1 gap-10 border-t border-cream/20 pt-14 md:grid-cols-12">
+        <div className="grid grid-cols-1 gap-10 border-t border-cream/20 pt-14 max-md:text-center md:grid-cols-12">
           <Reveal className="md:col-span-5">
             <p className="eyebrow text-earth-soft">Also under {pillars.build.title}</p>
             <h3 className="display mt-4 text-[2.6rem] md:text-[3.4rem]">{elevated.name}</h3>
-            <p className="mt-4 max-w-[46ch] text-cream/80">
+            <p className="mx-auto mt-4 max-w-[46ch] text-cream/80 md:mx-0">
               Design at the scale of the hand. {elevated.line}
             </p>
             <PlaceholderNote tone="dark">collection link and product photography to follow.</PlaceholderNote>

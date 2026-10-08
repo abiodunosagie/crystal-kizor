@@ -1,4 +1,5 @@
 import { About } from "@/components/about";
+import { BackToTop } from "@/components/back-to-top";
 import { Build } from "@/components/build";
 import { Give } from "@/components/give";
 import { Hero } from "@/components/hero";
@@ -26,6 +27,7 @@ export default function Home() {
         <NextSteps />
       </main>
       <SiteFooter />
+      <BackToTop />
     </>
   );
 }

@@ -8,12 +8,12 @@ export function Give() {
   const ako = venture("ako");
   const aliveAndFree = venture("alive-and-free");
   return (
-    <section id="give" className="gutter mx-auto max-w-[1440px] py-28 md:py-40">
+    <section id="give" className="gutter mx-auto max-w-[1440px] py-28 max-md:text-center md:py-40">
       <Reveal>
         <p className="eyebrow text-earth">
           {pillars.give.index} · {pillars.give.title}
         </p>
-        <h2 className="display mt-6 max-w-[20ch] text-[2.8rem] md:text-[4.4rem]">
+        <h2 className="display mx-auto mt-6 max-w-[20ch] md:mx-0 text-[2.8rem] md:text-[4.4rem]">
           The longest building project is a generation.
         </h2>
       </Reveal>

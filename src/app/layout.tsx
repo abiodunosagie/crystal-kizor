@@ -42,6 +42,7 @@ export const viewport: Viewport = {
   themeColor: "#f7f3ed",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
 };
 
 const personSchema = {

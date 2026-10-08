@@ -9,12 +9,12 @@ export function Teach() {
   const tea = venture("tea");
   return (
     <section id="teach" className="bg-paper">
-      <div className="gutter mx-auto max-w-[1440px] py-28 md:py-40">
+      <div className="gutter mx-auto max-w-[1440px] py-28 max-md:text-center md:py-40">
         <Reveal>
           <p className="eyebrow text-earth">
             {pillars.teach.index} · {pillars.teach.title}
           </p>
-          <h2 className="display mt-6 max-w-[22ch] text-[2.8rem] md:text-[4.4rem]">
+          <h2 className="display mx-auto mt-6 max-w-[22ch] md:mx-0 text-[2.8rem] md:text-[4.4rem]">
             What the studio learns, she gives back to the profession.
           </h2>
         </Reveal>
@@ -51,7 +51,7 @@ export function Teach() {
         <div id="speaking" className="mt-24 grid grid-cols-1 gap-12 border-t border-line pt-16 md:mt-32 md:grid-cols-12 md:gap-10">
           <Reveal className="md:col-span-5">
             <h3 className="display text-[2.4rem] md:text-[3rem]">Speaking</h3>
-            <p className="mt-5 max-w-[44ch] text-muted">
+            <p className="mx-auto mt-5 max-w-[44ch] text-muted md:mx-0">
               Talks, conversations and engagements, grounded in the work of a practising architect and studio founder.
             </p>
             <div className="mt-8">
@@ -80,7 +80,7 @@ export function Teach() {
         <div id="writing" className="mt-24 grid grid-cols-1 gap-12 border-t border-line pt-16 md:mt-32 md:grid-cols-12 md:gap-10">
           <Reveal className="md:col-span-5">
             <h3 className="display text-[2.4rem] md:text-[3rem]">Research &amp; writing</h3>
-            <p className="mt-5 max-w-[44ch] text-muted">
+            <p className="mx-auto mt-5 max-w-[44ch] text-muted md:mx-0">
               Architecture, research, writing and ideas under her own name. Recent notes from the Studio COKA journal:
             </p>
           </Reveal>
@@ -92,7 +92,7 @@ export function Teach() {
                     href={contact.studioJournal}
                     event="outbound_click"
                     params={{ location: "writing", target: "journal" }}
-                    className="group flex items-baseline justify-between gap-6 py-5"
+                    className="group flex items-baseline justify-between gap-6 py-5 text-left"
                   >
                     <span>
                       <span className="block text-caption font-semibold uppercase tracking-[0.05em] text-earth">{j.topic}</span>

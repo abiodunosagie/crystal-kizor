@@ -24,7 +24,7 @@ export function Hero() {
   return (
     <section ref={ref} id="top" className="gutter mx-auto max-w-[1440px] pt-24 md:pt-32">
       <div className="grid grid-cols-1 gap-y-10 md:grid-cols-12 md:gap-x-10">
-        <div className="md:col-span-7 md:pt-10">
+        <div className="max-md:text-center md:col-span-7 md:pt-10">
           <motion.p
             className="eyebrow text-balance text-earth"
             initial={{ y: 12 }}
@@ -50,15 +50,15 @@ export function Hero() {
                 height={688}
                 unoptimized
                 priority
-                className="h-auto w-full max-w-[640px]"
+                className="mx-auto h-auto w-full max-w-[640px] md:mx-0"
               />
             </motion.span>
           </h1>
 
-          <p className="display mt-10 max-w-[18ch] text-[2.1rem] leading-[1.05] md:text-[2.9rem]">
+          <p className="display mx-auto mt-10 max-w-[18ch] md:mx-0 text-[2.1rem] leading-[1.05] md:text-[2.9rem]">
             Building for this climate, and for the people in it.
           </p>
-          <p className="mt-6 max-w-[52ch] text-muted">
+          <p className="mx-auto mt-6 max-w-[52ch] text-muted md:mx-0">
             Crystal Kizor is {person.headlineFact} and the Design Director of
             Studio COKA. Architecture is where her work starts. From there it reaches into furniture, education, public
             speaking and the young people she believes will shape Africa&rsquo;s cities next.
@@ -82,28 +82,28 @@ export function Hero() {
               />
             </motion.div>
           </motion.div>
-          <p className="mt-3 text-caption text-muted">Crystal Kizor, Design Director, Studio COKA</p>
+          <p className="mt-3 text-caption text-muted max-md:text-center">Crystal Kizor, Design Director, Studio COKA</p>
         </div>
       </div>
 
       <div className="mt-16 md:mt-24">
-        <p className="eyebrow text-muted">I&rsquo;m here to</p>
-        <ul className="mt-4 grid grid-cols-1 border-t border-ink md:grid-cols-4">
+        <p className="eyebrow text-muted max-md:text-center">I&rsquo;m here to</p>
+        <ul className="mt-4 grid grid-cols-1 border-t border-ink md:grid-cols-2 md:gap-x-10 lg:grid-cols-4 lg:gap-x-0">
           {doors
             .filter((d) => d.inHero)
             .map((d, i) => (
-            <li key={d.id} className="border-b border-line md:border-b-0 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
+            <li key={d.id} className="border-b border-line lg:border-b-0 lg:border-r lg:px-6 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
               <TrackedLink
                 href={d.href}
                 event={d.event}
                 params={{ location: "hero", door: d.id, ...(d.lead ? { lead_type: d.lead } : {}) }}
-                className="group flex h-full flex-col items-start gap-2 py-5 transition-colors hover:text-earth md:gap-0 md:py-7"
+                className="group flex h-full flex-col items-center gap-2 py-5 text-center md:items-start md:text-left transition-colors hover:text-earth md:gap-0 md:py-7"
               >
                 <span className="flex items-baseline gap-3">
                   <span className="text-caption font-semibold text-earth">{String.fromCharCode(65 + i)}</span>
                   <span className="display text-[1.65rem] md:text-[1.9rem]">{d.want}</span>
                 </span>
-                <span className="pl-6 text-[0.9rem] text-muted transition-transform duration-300 group-hover:translate-x-1 md:mt-6 md:pl-0">
+                <span className="text-[0.9rem] text-muted transition-transform duration-300 group-hover:translate-x-1 md:mt-6">
                   {d.action} <span aria-hidden>→</span>
                 </span>
               </TrackedLink>

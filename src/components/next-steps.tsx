@@ -6,10 +6,10 @@ import { contact, doors, mailto, subjects } from "@/lib/content";
 export function NextSteps() {
   return (
     <section id="next" className="bg-ink text-cream">
-      <div className="gutter mx-auto max-w-[1440px] py-28 md:py-40">
+      <div className="gutter mx-auto max-w-[1440px] py-28 max-md:text-center md:py-40">
         <Reveal>
           <p className="eyebrow text-earth-soft">Where to next</p>
-          <h2 className="display mt-6 max-w-[16ch] text-[2.8rem] md:text-[4.4rem]">Find the right door.</h2>
+          <h2 className="display mx-auto mt-6 max-w-[16ch] md:mx-0 text-[2.8rem] md:text-[4.4rem]">Find the right door.</h2>
         </Reveal>
 
         <ul className="mt-16 border-t border-cream/30">

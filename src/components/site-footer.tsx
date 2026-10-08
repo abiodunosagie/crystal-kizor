@@ -5,10 +5,10 @@ import { social, ventures } from "@/lib/content";
 export function SiteFooter() {
   return (
     <footer className="bg-cream">
-      <div className="gutter mx-auto grid max-w-[1440px] grid-cols-1 gap-12 py-16 md:grid-cols-12 md:py-20">
+      <div className="gutter mx-auto grid max-w-[1440px] grid-cols-1 gap-12 py-16 max-md:text-center md:grid-cols-12 md:py-20">
         <div className="md:col-span-4">
-          <Image src="/brand/logo-social.webp" alt="Crystal Kizor monogram" width={432} height={436} unoptimized className="h-auto w-20" />
-          <p className="mt-6 max-w-[34ch] text-muted">Architect and Design Director of Studio COKA, Enugu, Nigeria.</p>
+          <Image src="/brand/logo-social.webp" alt="Crystal Kizor monogram" width={432} height={436} unoptimized className="mx-auto h-auto w-16 md:mx-0" />
+          <p className="mx-auto mt-6 max-w-[34ch] text-muted md:mx-0">Architect and Design Director of Studio COKA, Enugu, Nigeria.</p>
         </div>
 
         <nav aria-label="The work" className="md:col-span-3 md:col-start-6">
@@ -43,10 +43,10 @@ export function SiteFooter() {
           </ul>
         </nav>
       </div>
-      <div className="gutter mx-auto flex max-w-[1440px] flex-col gap-2 border-t border-line py-6 text-[0.85rem] text-muted md:flex-row md:justify-between">
+      <div className="gutter mx-auto flex max-w-[1440px] flex-col gap-2 border-t border-line py-6 text-[0.85rem] text-muted max-md:pb-24 max-md:text-center md:flex-row md:justify-between">
         <p>© 2026 Crystal Kizor</p>
         <p>Concept landing page prepared for Studio COKA, October 2026.</p>
-        <a href="#top" className="font-semibold text-ink hover:text-earth">
+        <a href="#top" className="font-semibold text-ink hover:text-earth max-md:hidden">
           Back to top <span aria-hidden>↑</span>
         </a>
       </div>
