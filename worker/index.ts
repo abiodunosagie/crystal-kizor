@@ -75,8 +75,14 @@ function text(value: unknown, max: number, multiline = false) {
 }
 
 // Reads the body with a hard byte cap. The content-length header can be
-// missing (chunked uploads) or wrong, so the stream itself is counted.
+// missing (chunked uploads) or wrong, so the stream itself is counted. Past
+// the cap the rest is read and discarded rather than cancelled, which keeps
+// the connection healthy for the next request; beyond DRAIN_LIMIT it is cut.
+const DRAIN_LIMIT = 1_000_000;
+
 async function readCapped(request: Request, cap: number): Promise<string | null> {
+  const declared = Number(request.headers.get("content-length"));
+  if (Number.isFinite(declared) && declared > cap) return null;
   if (!request.body) return "";
   const reader = request.body.getReader();
   const chunks: Uint8Array[] = [];
@@ -85,12 +91,13 @@ async function readCapped(request: Request, cap: number): Promise<string | null>
     const { done, value } = await reader.read();
     if (done) break;
     size += value.byteLength;
-    if (size > cap) {
+    if (size > DRAIN_LIMIT) {
       await reader.cancel();
       return null;
     }
-    chunks.push(value);
+    if (size <= cap) chunks.push(value);
   }
+  if (size > cap) return null;
   const all = new Uint8Array(size);
   let offset = 0;
   for (const c of chunks) {
