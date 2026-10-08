@@ -92,12 +92,31 @@ function PinnedSequence() {
 }
 
 // Phones, and anyone who prefers reduced motion: a native swipe strip.
+// The counter tells thumbs there is more to the right; the next card already
+// peeks in at the edge.
 function SwipeStrip({ className = "" }: { className?: string }) {
+  const [current, setCurrent] = useState(1);
+  const onScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const el = e.currentTarget;
+    const card = el.firstElementChild as HTMLElement | null;
+    if (!card) return;
+    const step = card.offsetWidth + parseFloat(getComputedStyle(el).columnGap || "0");
+    setCurrent(Math.min(studioFrames.length, Math.round(el.scrollLeft / step) + 1));
+  };
   return (
-    <div
-      className={`flex snap-x snap-mandatory scroll-px-[var(--gutter)] gap-5 overflow-x-auto px-[var(--gutter)] pb-4 [scrollbar-width:none] ${className}`}
-    >
-      <Frames />
+    <div className={className}>
+      <div
+        onScroll={onScroll}
+        className="flex snap-x snap-mandatory scroll-px-[var(--gutter)] gap-5 overflow-x-auto px-[var(--gutter)] pb-4 [scrollbar-width:none]"
+      >
+        <Frames />
+      </div>
+      <p className="gutter mt-2 flex items-center justify-between text-[0.95rem] text-cream/75" aria-live="polite">
+        <span>
+          {current} of {studioFrames.length}
+        </span>
+        <span aria-hidden>Swipe →</span>
+      </p>
     </div>
   );
 }
